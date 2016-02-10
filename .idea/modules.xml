@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ClassCommentary.iml" filepath="$PROJECT_DIR$/ClassCommentary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CommentaryDialog/CommentaryDialog.iml" filepath="$PROJECT_DIR$/CommentaryDialog/CommentaryDialog.iml" />
     </modules>
   </component>
 </project>
