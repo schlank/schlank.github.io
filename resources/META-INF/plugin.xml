@@ -35,16 +35,4 @@
       <keyboard-shortcut keymap="$default" first-keystroke="shift BACK_QUOTE" second-keystroke="shift 1"/>
     </action>
   </actions>
-
-  <!--<project-components>-->
-    <!--<component>-->
-      <!--<implementation-class>classcommentary.ClassCommentaryComponent</implementation-class>-->
-    <!--</component>-->
-  <!--</project-components>-->
-
-    <module-components>
-        <component>
-            <implementation-class>classcommentary.dialog.CommentaryComponent</implementation-class>
-        </component>
-    </module-components>
 </idea-plugin>

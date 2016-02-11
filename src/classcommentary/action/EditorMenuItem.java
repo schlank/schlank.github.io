@@ -1,5 +1,6 @@
 package classcommentary.action;
 
+import classcommentary.dialog.ClassCommentaryPanel;
 import classcommentary.dialog.PluginDialog;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.actionSystem.*;
@@ -10,8 +11,6 @@ import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.Nullable;
-
-import java.awt.*;
 
 public class EditorMenuItem extends AnAction {
 
@@ -28,25 +27,9 @@ public class EditorMenuItem extends AnAction {
         final String className = getActiveFileName(editor);
         final String classPath = getActiveFilePath(editor);
 
-
-        final boolean canBeParent = false;
-        final boolean beModalIfPossible = true;
-//        DialogWrapper
-        PluginDialog dialog = new PluginDialog(project, canBeParent, beModalIfPossible);
-        dialog.centerRelativeToParent();
-        dialog.setModal(true);
-        dialog.setTitle("Class Commentary" + className);
-        dialog.setResizable(true);
-        dialog.setSize(200, 200);
-
-
-        //ContentPane
-        Container contentPane = dialog.getContentPane();
-        dialog.setSize(400, 500);
-        contentPane.setBackground(Color.BLACK);
-        contentPane.setFocusable(true);
-        dialog.show();
-    }
+        PluginDialog pluginDialog = new PluginDialog(project, false, true);
+        pluginDialog.show();
+}
 
     private void logActionStatus(AnActionEvent actionEvent) {
 
