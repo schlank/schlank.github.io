@@ -13,7 +13,9 @@ public class ClassCommentaryPanel extends JPanel {
         super();
         setVisible(true);
         add(mTopPanel);
-        mCommentField.setText("JF:LSD:LDFH:SKLDJFH:SDKFJHDK:SFJHDK:SFJ");
+        mCommentField.setText("Comment here.");
+//        mLoveItCheckbox.setSelectedIcon(new ImageIcon("thumbsUp.jpg"));
+//        mLoveItCheckbox.setSize(200, 200);
     }
 
 
