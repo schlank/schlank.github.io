@@ -2,25 +2,20 @@ package classcommentary.model;
 
 public class ClassStatusCalculation {
 
-    private Commentary mCommentary;
+    private ClassStatus mStatus;
 
     public ClassStatusCalculation(Commentary commentary) {
-        mCommentary = commentary;
+        mStatus = calculateAveStatus(commentary);
     }
 
-    public Status getStatus() {
-        return calculateAveStatus();
+    public ClassStatus getStatus() {
+        return mStatus;
     }
 
-    private Status calculateAveStatus() {
-        return Status.OK;
-    }
-
-    public enum Status {
-        GREAT,
-        GOOD,
-        BAD,
-        OK,
-        NAZZIL
+    private ClassStatus calculateAveStatus(Commentary commentary) {
+        if(commentary != null) {
+            return ClassStatus.OK;
+        }
+        return ClassStatus.BAD;
     }
 }

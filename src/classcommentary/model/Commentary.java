@@ -13,6 +13,10 @@ public class Commentary {
         mFilePath = filePath;
     }
 
+    public String toSQLValues() {
+        return getDatabaseUid() +",'"+getClassName()+"', '"+getFilePath()+"'";
+    }
+
     public Integer getDatabaseUid() {
         if(mDatabaseUid == null)
             return getFilePath().hashCode();
@@ -25,10 +29,5 @@ public class Commentary {
 
     public String getFilePath() {
         return mFilePath;
-    }
-
-    public String toSQLValues() {
-        return getDatabaseUid()+","+getClassName()+","+getFilePath();
-
     }
 }

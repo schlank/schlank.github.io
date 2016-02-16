@@ -9,12 +9,12 @@ import java.util.Map;
 public class CommentaryFactory {
 
     private static final String mTableName = "Commentary";
+    private static final String FIELDS = "ID, CLASSNAME, PATH";
 
     public CommentaryFactory() {
         deleteCommentaryTable();
         createCommentaryTable();
     }
-
 
     private Connection getConnection() {
         try {
@@ -29,8 +29,6 @@ public class CommentaryFactory {
         }
         return null;
     }
-
-
 
     private void deleteCommentaryTable() {
         try {
@@ -48,7 +46,6 @@ public class CommentaryFactory {
     }
 
     private void createCommentaryTable() {
-
         try {
             Connection conn = getConnection();
             if (conn != null) {
@@ -64,7 +61,6 @@ public class CommentaryFactory {
     }
 
     private Map<String, Commentary> queryAllCommentary() throws SQLException {
-
         Map<String, Commentary> commentaryMap = new HashMap<>();
         Connection conn = getConnection();
         if(conn!=null) {
@@ -100,17 +96,13 @@ public class CommentaryFactory {
     }
 
     public void insertCommentary(Commentary commentary) {
-
         try {
             Connection conn = getConnection();
             if (conn != null) {
                 Statement stat = conn.createStatement();
-                int uid = commentary.getDatabaseUid();
-                String clsName = commentary.getClassName();
-                String path = commentary.getFilePath();
                 String insertTableSQL = "INSERT INTO " + mTableName +
-                        "(ID, CLASSNAME, PATH) " +
-                        "VALUES("+uid +",'"+clsName+"', '"+path+"')";
+                        "("+FIELDS+") " +
+                        "VALUES(" + commentary.toSQLValues() + ")";
                 stat.execute(insertTableSQL);
                 stat.close();
                 conn.close();
