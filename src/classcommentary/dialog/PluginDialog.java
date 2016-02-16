@@ -14,15 +14,11 @@ public class PluginDialog extends DialogWrapper {
 
     public PluginDialog(Project project, boolean canBeParent, boolean applicationModalIfPossible) {
         super(project, canBeParent, applicationModalIfPossible);
-
         setTitle("DialogTitle");
-
         ClassCommentaryPanel classCommentaryPanel = new ClassCommentaryPanel();
         jPanelLabeledComponent = LabeledComponent.create(classCommentaryPanel, "wtf mate");
-
         init();
     }
-
 
     @Nullable
     @Override
