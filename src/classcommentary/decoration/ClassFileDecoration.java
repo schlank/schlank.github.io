@@ -19,13 +19,6 @@ import com.intellij.ui.SimpleTextAttributes;
 
 import java.awt.*;
 
-/**
- * <p></p>
- * <br/>
- * <p>Created on 12.10.13</p>
- *
- * @author Lukasz Zielinski
- */
 public class ClassFileDecoration implements NodeDecoration {
     private final static JBColor TEMPORARY_COLOR = new JBColor(new Color(77, 81, 84), new Color(115, 119, 122));
     private final static String PREFIX = "CC";
@@ -33,11 +26,11 @@ public class ClassFileDecoration implements NodeDecoration {
 
     protected String getName(ProjectViewNode node) {
 
-        PluginManager.getLogger().warn("ProjectViewNode:" + node);
         if(node != null) {
-            if (node instanceof BasePsiMemberNode) {
+            if (node instanceof ClassTreeNode) {
                 ClassTreeNode classNode = (ClassTreeNode) node;
-                return classNode.getPsiClass().getName();
+                PluginManager.getLogger().warn("ClassTreeNode:" + node);
+                return classNode.getPsiClass().getName() + " Decorated" ;
             }
             return node.getName();
         }

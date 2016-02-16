@@ -8,6 +8,7 @@ import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
 import com.intellij.ide.projectView.ProjectViewNodeDecorator;
+import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.packageDependencies.ui.PackageDependenciesNode;
@@ -18,7 +19,7 @@ public class CCProjectViewNodeDecorator implements ProjectViewNodeDecorator {
 
     @Override
     public void decorate(ProjectViewNode node, PresentationData data) {
-        if (node != null) {
+        if (node != null && node instanceof ClassTreeNode) {
             VirtualFile virtualFile = node.getVirtualFile();
             if(virtualFile !=  null) {
                 String extention = virtualFile.getExtension();
@@ -26,6 +27,9 @@ public class CCProjectViewNodeDecorator implements ProjectViewNodeDecorator {
                 if(extention !=null && extention.equalsIgnoreCase("java")) {
                     PluginManager.getLogger().warn("node VirtualFile extention:" + virtualFile.getExtension());
                 }
+            }
+            else {
+                PluginManager.getLogger().warn("NO VirtualFile:" + node);
             }
             ClassFileDecoration classFileDecoration = new ClassFileDecoration();
             classFileDecoration.decorate(node, data);
