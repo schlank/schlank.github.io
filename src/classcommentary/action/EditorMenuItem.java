@@ -47,9 +47,9 @@ public class EditorMenuItem extends AnAction {
     private void createDialog(AnActionEvent actionEvent) {
 
         final Project project = actionEvent.getRequiredData(CommonDataKeys.PROJECT);
-        final Editor editor = actionEvent.getRequiredData(CommonDataKeys.EDITOR);
-        final String className = getActiveFileName(editor);
-        final String classPath = getActiveFilePath(editor);
+//        final Editor editor = actionEvent.getRequiredData(CommonDataKeys.EDITOR);
+//        final String className = getActiveFileName(editor);
+//        final String classPath = getActiveFilePath(editor);
 
         PluginDialog pluginDialog = new PluginDialog(project, false, true);
         pluginDialog.show();

@@ -36,9 +36,9 @@ public class ProjectViewManager extends AbstractProjectComponent {
                 ApplicationManager.getApplication().invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                            final ProjectView projectView = ProjectView.getInstance(project);
-                            PluginManager.getLogger().warn("[ WAT ] Refreshing Project View");
-                            projectView.refresh();
+                        final ProjectView projectView = ProjectView.getInstance(project);
+                        PluginManager.getLogger().warn("[ WAT ] Refreshing Project View");
+                        projectView.refresh();
                     }
                 });
     }
