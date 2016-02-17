@@ -32,10 +32,19 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="ClassCommentary.EditorMenuAction" class="classcommentary.action.EditorMenuItem" text="Class Commentary"
-            description="Testicles">
-      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="shift BACK_QUOTE" second-keystroke="shift 1"/>
+    <action id="ClassCommentary.EditorMenuAction"
+            class="classcommentary.action.EditorMenuItem"
+            text="Class Commentary"
+            description="Class Commentary Editor Menu Item">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift BACK_QUOTE" />
+    </action>
+    <action id="ClassCommentary.ProjectViewMenuAction"
+            class="classcommentary.action.EditorMenuItem"
+            text="Class Commentary"
+            description="Class Commentary Project View Navigation Menu Item">
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift BACK_QUOTE" />
     </action>
   </actions>
 

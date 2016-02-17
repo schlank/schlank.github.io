@@ -1,11 +1,12 @@
 package classcommentary.action;
 
-import classcommentary.dialog.ClassCommentaryPanel;
 import classcommentary.dialog.PluginDialog;
 import classcommentary.model.Commentary;
 import classcommentary.model.CommentaryFactory;
 import com.intellij.ide.plugins.PluginManager;
-import com.intellij.openapi.actionSystem.*;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
@@ -15,33 +16,18 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.Nullable;
 
-import java.sql.*;
-
-/**
- * Notes for phil:
- * PSIViewer could get me a away to hover an icon over a specific element in a file.  Like annotations.
- * Check RoboHexar for examples.  Maybe it uses it.c
- *
- JBPopupFactory.getInstance()
- .createHtmlTextBalloonBuilder(htmlText, messageType, null)
- .setFadeoutTime(7500)
- .createBalloon()
- .show(RelativePoint.getCenterOf(statusBar.getComponent()),
- Balloon.Position.atRight);
- */
-public class EditorMenuItem extends AnAction {
+public class ProjectViewMenuItem extends AnAction {
     private final Logger LOG = Logger.getInstance(getClass());
 
     @Override
     public void actionPerformed(AnActionEvent actionEvent) {
 //        logActionStatus(actionEvent);
 //        createDialog(actionEvent);
-//        CommentaryFactory commentaryFactory = new CommentaryFactory();
-//        Commentary commentary = new Commentary(null,"classheredude11.java","/fsdfjjdfsaf/asdffd/classhderedude11.java");
-//        Commentary commentary2 = new Commentary(null,"classheredude12.java","/fsdfjjdfsaf/asdffd/classhderedude12.java");
-//        commentaryFactory.insertCommentary(commentary);
-//        commentaryFactory.insertCommentary(commentary2);
-        createDialog(actionEvent);
+        CommentaryFactory commentaryFactory = new CommentaryFactory();
+        Commentary commentary = new Commentary(null,"classheredude11.java","/fsdfjjdfsaf/asdffd/classhderedude11.java");
+        Commentary commentary2 = new Commentary(null,"classheredude12.java","/fsdfjjdfsaf/asdffd/classhderedude12.java");
+        commentaryFactory.insertCommentary(commentary);
+        commentaryFactory.insertCommentary(commentary2);
     }
 
     private void createDialog(AnActionEvent actionEvent) {
@@ -71,7 +57,7 @@ public class EditorMenuItem extends AnAction {
 
         VirtualFile virtualFile = project.getProjectFile();
         if(virtualFile != null)
-        PluginManager.getLogger().warn("ProjectFile: " + virtualFile.getName());
+            PluginManager.getLogger().warn("ProjectFile: " + virtualFile.getName());
 
         String place = actionEvent.getPlace();
         PluginManager.getLogger().warn("place: " + place);
