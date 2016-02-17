@@ -36,11 +36,11 @@ public class EditorMenuItem extends AnAction {
     public void actionPerformed(AnActionEvent actionEvent) {
 //        logActionStatus(actionEvent);
 //        createDialog(actionEvent);
-//        CommentaryFactory commentaryFactory = new CommentaryFactory();
-//        Commentary commentary = new Commentary(null,"classheredude11.java","/fsdfjjdfsaf/asdffd/classhderedude11.java");
-//        Commentary commentary2 = new Commentary(null,"classheredude12.java","/fsdfjjdfsaf/asdffd/classhderedude12.java");
-//        commentaryFactory.insertCommentary(commentary);
-//        commentaryFactory.insertCommentary(commentary2);
+        CommentaryFactory commentaryFactory = new CommentaryFactory();
+        Commentary commentary = new Commentary(null,"classheredude11.java","/fsdfjjdfsaf/asdffd/classhderedude11.java");
+        Commentary commentary2 = new Commentary(null,"classheredude12.java","/fsdfjjdfsaf/asdffd/classhderedude12.java");
+        commentaryFactory.insertCommentary(commentary);
+        commentaryFactory.insertCommentary(commentary2);
         createDialog(actionEvent);
     }
 

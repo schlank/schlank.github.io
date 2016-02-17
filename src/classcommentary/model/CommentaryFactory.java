@@ -12,7 +12,7 @@ public class CommentaryFactory {
     private static final String FIELDS = "ID, CLASSNAME, PATH";
 
     public CommentaryFactory() {
-        deleteCommentaryTable();
+        deleteCommentaryTable(); //TODO: don't do this dummy.
         createCommentaryTable();
     }
 
