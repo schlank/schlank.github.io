@@ -4,7 +4,7 @@
 package classcommentary.component;
 
 import classcommentary.decoration.ClassFileDecoration;
-import classcommentary.model.Commentary;
+import classcommentary.domain.commentary.model.Commentary;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;

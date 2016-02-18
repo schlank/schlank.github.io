@@ -1,6 +1,7 @@
 package classcommentary.component;
 
-import classcommentary.model.Commentary;
+import classcommentary.domain.commentary.CommentaryDomain;
+import classcommentary.domain.commentary.model.Commentary;
 import classcommentary.projectView.DecorationSettingsNotifier;
 import classcommentary.projectView.DecorationToggleNotifier;
 import com.intellij.ide.plugins.PluginManager;
@@ -13,13 +14,18 @@ import com.intellij.openapi.vcs.changes.committed.VcsConfigurationChangeListener
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.messages.MessageBusConnection;
 
-public class ProjectViewManager extends AbstractProjectComponent {
-    private final Logger LOG = Logger.getInstance(getClass());
+import java.sql.SQLException;
+import java.util.Map;
 
-    private MessageBusConnection myConnection;
+public class ProjectViewManager extends AbstractProjectComponent {
+
+    private final Logger LOG = Logger.getInstance(getClass());
+    private MessageBusConnection mConnection;
+    private CommentaryDomain mCommentaryDomain;
 
     public ProjectViewManager(Project project) {
         super(project);
+        mCommentaryDomain = new CommentaryDomain();
     }
 
     public static ProjectViewManager getInstance(Project project) {
@@ -34,32 +40,38 @@ public class ProjectViewManager extends AbstractProjectComponent {
     }
 
     public void refreshProjectView(final Project project) {
-                ApplicationManager.getApplication().invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        final ProjectView projectView = ProjectView.getInstance(project);
-                        PluginManager.getLogger().warn("[ WAT ] Refreshing Project View");
-                        projectView.refresh();
-                    }
-                });
+        ApplicationManager.getApplication().invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                final ProjectView projectView = ProjectView.getInstance(project);
+                PluginManager.getLogger().warn("[ WAT ] Refreshing Project View");
+                try {
+                    mCommentaryDomain.getCommentaryMap(true);
+                }
+                catch (SQLException sqlEx) {
+                    PluginManager.getLogger().warn("[ WAT ] SQLException:" + sqlEx.getMessage());
+                }
+                projectView.refresh();
+            }
+        });
     }
 
     private void initBusSubstription() {
 
-        myConnection = myProject.getMessageBus().connect();
-        myConnection.subscribe(DecorationToggleNotifier.TOGGLE_TOPIC, new DecorationToggleNotifier() {
+        mConnection = myProject.getMessageBus().connect();
+        mConnection.subscribe(DecorationToggleNotifier.TOGGLE_TOPIC, new DecorationToggleNotifier() {
             @Override
             public void decorationChanged(Project project) {
                 refreshProjectView(project);
             }
         });
-        myConnection.subscribe(VcsConfigurationChangeListener.BRANCHES_CHANGED, new VcsConfigurationChangeListener.Notification() {
+        mConnection.subscribe(VcsConfigurationChangeListener.BRANCHES_CHANGED, new VcsConfigurationChangeListener.Notification() {
             @Override
             public void execute(Project project, VirtualFile vcsRoot) {
                 refreshProjectView(project);
             }
         });
-        myConnection.subscribe(DecorationSettingsNotifier.TOGGLE_TOPIC, new DecorationSettingsNotifier() {
+        mConnection.subscribe(DecorationSettingsNotifier.TOGGLE_TOPIC, new DecorationSettingsNotifier() {
             @Override
             public void settingsChanged() {
                 refreshProjectView(myProject);

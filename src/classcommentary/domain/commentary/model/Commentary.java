@@ -1,4 +1,4 @@
-package classcommentary.model;
+package classcommentary.domain.commentary.model;
 
 public class Commentary {
 

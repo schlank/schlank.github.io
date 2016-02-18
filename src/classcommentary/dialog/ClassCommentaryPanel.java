@@ -14,8 +14,6 @@ public class ClassCommentaryPanel extends JPanel {
         setVisible(true);
         add(mTopPanel);
         mCommentField.setText("Comment here.");
-//        mLoveItCheckbox.setSelectedIcon(new ImageIcon("thumbsUp.jpg"));
-//        mLoveItCheckbox.setSize(200, 200);
     }
 
 

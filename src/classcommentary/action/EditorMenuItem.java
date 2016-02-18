@@ -1,9 +1,6 @@
 package classcommentary.action;
 
-import classcommentary.dialog.ClassCommentaryPanel;
 import classcommentary.dialog.PluginDialog;
-import classcommentary.model.Commentary;
-import classcommentary.model.CommentaryFactory;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.diagnostic.Logger;
@@ -14,8 +11,6 @@ import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.Nullable;
-
-import java.sql.*;
 
 /**
  * Notes for phil:
@@ -34,23 +29,11 @@ public class EditorMenuItem extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent actionEvent) {
-//        logActionStatus(actionEvent);
-//        createDialog(actionEvent);
-        CommentaryFactory commentaryFactory = new CommentaryFactory();
-        Commentary commentary = new Commentary(null,"classheredude11.java","/fsdfjjdfsaf/asdffd/classhderedude11.java");
-        Commentary commentary2 = new Commentary(null,"classheredude12.java","/fsdfjjdfsaf/asdffd/classhderedude12.java");
-        commentaryFactory.insertCommentary(commentary);
-        commentaryFactory.insertCommentary(commentary2);
         createDialog(actionEvent);
     }
 
     private void createDialog(AnActionEvent actionEvent) {
-
         final Project project = actionEvent.getRequiredData(CommonDataKeys.PROJECT);
-//        final Editor editor = actionEvent.getRequiredData(CommonDataKeys.EDITOR);
-//        final String className = getActiveFileName(editor);
-//        final String classPath = getActiveFilePath(editor);
-
         PluginDialog pluginDialog = new PluginDialog(project, false, true);
         pluginDialog.show();
     }

@@ -1,8 +1,8 @@
 package classcommentary.action;
 
 import classcommentary.dialog.PluginDialog;
-import classcommentary.model.Commentary;
-import classcommentary.model.CommentaryFactory;
+import classcommentary.domain.commentary.model.Commentary;
+import classcommentary.domain.commentary.model.CommentaryFactory;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -21,13 +21,7 @@ public class ProjectViewMenuItem extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent actionEvent) {
-//        logActionStatus(actionEvent);
-//        createDialog(actionEvent);
-        CommentaryFactory commentaryFactory = new CommentaryFactory();
-        Commentary commentary = new Commentary(null,"classheredude11.java","/fsdfjjdfsaf/asdffd/classhderedude11.java");
-        Commentary commentary2 = new Commentary(null,"classheredude12.java","/fsdfjjdfsaf/asdffd/classhderedude12.java");
-        commentaryFactory.insertCommentary(commentary);
-        commentaryFactory.insertCommentary(commentary2);
+        createDialog(actionEvent);
     }
 
     private void createDialog(AnActionEvent actionEvent) {

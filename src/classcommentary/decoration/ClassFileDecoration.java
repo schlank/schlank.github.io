@@ -6,13 +6,12 @@ package classcommentary.decoration;
 import classcommentary.component.NodeDecoration;
 import classcommentary.component.NodeDecorationType;
 import classcommentary.component.TextDecorationCalculator;
-import classcommentary.model.ClassStatus;
-import classcommentary.model.Commentary;
+import classcommentary.domain.commentary.model.ClassStatus;
+import classcommentary.domain.commentary.model.Commentary;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
 import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
 import com.intellij.ide.util.treeView.PresentableNodeDescriptor.ColoredFragment;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.util.PsiUtilBase;
 import com.intellij.ui.SimpleTextAttributes;
@@ -50,11 +49,6 @@ public class ClassFileDecoration implements NodeDecoration {
     @Override
     public void decorate(ProjectViewNode node, PresentationData data) {
         addStatusText(data, getName(node));
-    }
-
-    protected ColoredFragment formatByClassRating(ClassStatus status) {
-        SimpleTextAttributes textAttributes = attributesByClassStatus(status);
-        return new ColoredFragment(" " + status.getLabel(), textAttributes);
     }
 
     private SimpleTextAttributes attributesByClassStatus(ClassStatus status) {

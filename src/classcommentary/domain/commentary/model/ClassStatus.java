@@ -1,4 +1,4 @@
-package classcommentary.model;
+package classcommentary.domain.commentary.model;
 
 import com.intellij.ui.JBColor;
 

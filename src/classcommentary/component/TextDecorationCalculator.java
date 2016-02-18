@@ -1,7 +1,7 @@
 package classcommentary.component;
 
-import classcommentary.model.ClassStatus;
-import classcommentary.model.Commentary;
+import classcommentary.domain.commentary.model.ClassStatus;
+import classcommentary.domain.commentary.model.Commentary;
 
 public class TextDecorationCalculator {
 

@@ -1,17 +1,23 @@
-package classcommentary.model;
+package classcommentary.domain.commentary;
 
+import classcommentary.domain.commentary.model.Commentary;
+import classcommentary.domain.commentary.model.CommentaryFactory;
 import com.intellij.ide.plugins.PluginManager;
+import groovy.lang.Singleton;
 
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommentaryFactory {
+@Singleton
+public class CommentaryDomain {
 
     private static final String mTableName = "Commentary";
     private static final String FIELDS = "ID, CLASSNAME, PATH";
+    private Map<Integer, Commentary> mCommentaryMap = null;
 
-    public CommentaryFactory() {
+
+    public CommentaryDomain() {
         deleteCommentaryTable(); //TODO: don't do this dummy.
         createCommentaryTable();
     }
@@ -60,39 +66,23 @@ public class CommentaryFactory {
         }
     }
 
-    private Map<String, Commentary> queryAllCommentary() throws SQLException {
-        Map<String, Commentary> commentaryMap = new HashMap<>();
-        Connection conn = getConnection();
-        if(conn!=null) {
-            ResultSet rs;
-            Statement stat = conn.createStatement();
-            rs = stat.executeQuery("SELECT * FROM " + mTableName);
-            int count = 1;
-            while (rs.next()) {
-                Commentary commentary = createCommentary(rs);
-                String id = rs.getString("id");
-                commentaryMap.put(id, commentary);
-                PluginManager.getLogger().warn(count + " " + id);
-                PluginManager.getLogger().warn(count + " " + rs.getString("className"));
-                PluginManager.getLogger().warn(count + " " + rs.getString("path"));
-                count++;
-            }
-            stat.close();
-            conn.close();
-        }
-        if(!commentaryMap.isEmpty()) {
-            return commentaryMap;
-        }
-        else {
-            return null;
-        }
-    }
+    public Map<Integer, Commentary> getCommentaryMap(boolean queryForData) throws SQLException {
 
-    private Commentary createCommentary(ResultSet resultSet) throws SQLException {
-        int id = resultSet.getInt("id");
-        String className = resultSet.getString("className");
-        String path = "test";
-        return new Commentary(id, className, path);
+        if(queryForData) {
+            Map<Integer, Commentary> commentaryMap = null;
+            Connection conn = getConnection();
+            if (conn != null) {
+                Statement stat = conn.createStatement();
+                ResultSet resultSet = stat.executeQuery("SELECT * FROM " + mTableName);
+                commentaryMap = CommentaryFactory.createCommentaryMap(resultSet);
+                if(commentaryMap != null && !commentaryMap.isEmpty()) {
+                    mCommentaryMap = commentaryMap;
+                }
+                stat.close();
+                conn.close();
+            }
+        }
+        return mCommentaryMap;
     }
 
     public void insertCommentary(Commentary commentary) {
