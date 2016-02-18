@@ -1,4 +1,7 @@
-package classcommentary.domain.commentary.model;
+package classcommentary.domain.commentary.util;
+
+import classcommentary.domain.commentary.model.ClassStatus;
+import classcommentary.domain.commentary.model.Commentary;
 
 public class ClassStatusCalculation {
 

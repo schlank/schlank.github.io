@@ -19,7 +19,7 @@ public class CCProjectViewNodeDecorator implements ProjectViewNodeDecorator {
     public void decorate(ProjectViewNode viewNode, PresentationData presentationData) {
 
         if (viewNode != null && viewNode instanceof ClassTreeNode) {
-            int commentaryId = ViewNodeUtil.commentaryIdForNode(viewNode);
+            int commentaryId = ViewNodeUtil.commentaryIdForNode((ClassTreeNode)viewNode);
             ProjectViewManager myProjectViewManager = ProjectViewManager.getInstance(viewNode.getProject());
             Commentary commentary = myProjectViewManager.getCommentaryForId(commentaryId);
             ClassFileDecoration classFileDecoration = new ClassFileDecoration(commentary);

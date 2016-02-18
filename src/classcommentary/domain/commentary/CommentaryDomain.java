@@ -6,7 +6,6 @@ import com.intellij.ide.plugins.PluginManager;
 import groovy.lang.Singleton;
 
 import java.sql.*;
-import java.util.HashMap;
 import java.util.Map;
 
 @Singleton
@@ -14,7 +13,7 @@ public class CommentaryDomain {
 
     private static final String mTableName = "Commentary";
     private static final String FIELDS = "ID, CLASSNAME, PATH";
-    private Map<Integer, Commentary> mCommentaryMap = null;
+    private Map<Integer, Commentary> mCommentaryMapCache = null;
 
 
     public CommentaryDomain() {
@@ -76,13 +75,13 @@ public class CommentaryDomain {
                 ResultSet resultSet = stat.executeQuery("SELECT * FROM " + mTableName);
                 commentaryMap = CommentaryFactory.createCommentaryMap(resultSet);
                 if(commentaryMap != null && !commentaryMap.isEmpty()) {
-                    mCommentaryMap = commentaryMap;
+                    mCommentaryMapCache = commentaryMap;
                 }
                 stat.close();
                 conn.close();
             }
         }
-        return mCommentaryMap;
+        return mCommentaryMapCache;
     }
 
     public void insertCommentary(Commentary commentary) {
@@ -101,5 +100,12 @@ public class CommentaryDomain {
         catch (SQLException ex) {
             PluginManager.getLogger().warn("SQLException " + ex.getMessage());
         }
+    }
+
+    public Commentary getCommentaryForId(Integer commentaryId) {
+        if(mCommentaryMapCache != null) {
+            return mCommentaryMapCache.get(commentaryId);
+        }
+        return null;
     }
 }

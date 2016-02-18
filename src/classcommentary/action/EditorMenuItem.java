@@ -1,16 +1,20 @@
 package classcommentary.action;
 
 import classcommentary.dialog.PluginDialog;
+import classcommentary.domain.commentary.CommentaryDomain;
+import classcommentary.domain.commentary.model.Commentary;
+import classcommentary.domain.commentary.util.CommentaryUtil;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.Nullable;
+
+import java.sql.SQLException;
 
 /**
  * Notes for phil:
@@ -27,9 +31,22 @@ import org.jetbrains.annotations.Nullable;
 public class EditorMenuItem extends AnAction {
     private final Logger LOG = Logger.getInstance(getClass());
 
+    private CommentaryDomain mCommentaryDomain;
+
+    public EditorMenuItem() {
+        super();
+        mCommentaryDomain = new CommentaryDomain();
+    }
+
     @Override
     public void actionPerformed(AnActionEvent actionEvent) {
+
+        VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(actionEvent.getDataContext());
+        final Project project = actionEvent.getRequiredData(CommonDataKeys.PROJECT);
+        Commentary commentary = getCommentary(currentFile, project.getName());
+
         createDialog(actionEvent);
+        PluginManager.getLogger().warn("project");
     }
 
     private void createDialog(AnActionEvent actionEvent) {
@@ -38,28 +55,25 @@ public class EditorMenuItem extends AnAction {
         pluginDialog.show();
     }
 
-    private void logActionStatus(AnActionEvent actionEvent) {
+    public Commentary getCommentary(VirtualFile virtualFile, String projectName) {
 
-        //Get all the required data from data keys
-        final Editor editor = actionEvent.getRequiredData(CommonDataKeys.EDITOR);
-        final Project project = actionEvent.getRequiredData(CommonDataKeys.PROJECT);
-        final SelectionModel selectionModel = editor.getSelectionModel();
-        final int start = selectionModel.getSelectionStart();
-        final int end = selectionModel.getSelectionEnd();
+        String className = virtualFile.getName();
+        String filePath = virtualFile.getPath();
+        int commentaryId = CommentaryUtil.commentaryId(className, filePath, projectName);
 
-        PluginManager.getLogger().warn("Logging Starts Here ============================================>");
+        Commentary commentary = mCommentaryDomain.getCommentaryForId(commentaryId);
+        if(commentary == null) {
+            commentary = new Commentary(commentaryId, className, filePath);
+            try {
+                mCommentaryDomain.insertCommentary(commentary);
+                mCommentaryDomain.getCommentaryMap(true);
+            }
+            catch (SQLException sqlEx) {
+                PluginManager.getLogger().warn("SQLClientInfoException sqlEx:" + sqlEx.getMessage());
+            }
+        }
+        return commentary;
 
-        String projectName = project.getName();
-        PluginManager.getLogger().warn("Project: "+projectName);
-
-        VirtualFile virtualFile = project.getProjectFile();
-        if(virtualFile != null)
-        PluginManager.getLogger().warn("ProjectFile: " + virtualFile.getName());
-
-        String place = actionEvent.getPlace();
-        PluginManager.getLogger().warn("place: " + place);
-        PluginManager.getLogger().warn("selectedDocument: " + getActiveFilePath(editor));
-        PluginManager.getLogger().warn("fileName: " + getActiveFileName(editor));
     }
 
     private @Nullable

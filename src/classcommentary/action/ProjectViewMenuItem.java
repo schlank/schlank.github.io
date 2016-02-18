@@ -35,30 +35,6 @@ public class ProjectViewMenuItem extends AnAction {
         pluginDialog.show();
     }
 
-    private void logActionStatus(AnActionEvent actionEvent) {
-
-        //Get all the required data from data keys
-        final Editor editor = actionEvent.getRequiredData(CommonDataKeys.EDITOR);
-        final Project project = actionEvent.getRequiredData(CommonDataKeys.PROJECT);
-        final SelectionModel selectionModel = editor.getSelectionModel();
-        final int start = selectionModel.getSelectionStart();
-        final int end = selectionModel.getSelectionEnd();
-
-        PluginManager.getLogger().warn("Logging Starts Here ============================================>");
-
-        String projectName = project.getName();
-        PluginManager.getLogger().warn("Project: "+projectName);
-
-        VirtualFile virtualFile = project.getProjectFile();
-        if(virtualFile != null)
-            PluginManager.getLogger().warn("ProjectFile: " + virtualFile.getName());
-
-        String place = actionEvent.getPlace();
-        PluginManager.getLogger().warn("place: " + place);
-        PluginManager.getLogger().warn("selectedDocument: " + getActiveFilePath(editor));
-        PluginManager.getLogger().warn("fileName: " + getActiveFileName(editor));
-    }
-
     private @Nullable
     VirtualFile getActiveVirtualFile(Editor editor) {
         Document currentDoc = editor.getDocument();
