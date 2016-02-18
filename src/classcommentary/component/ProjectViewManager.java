@@ -1,5 +1,6 @@
 package classcommentary.component;
 
+import classcommentary.model.Commentary;
 import classcommentary.projectView.DecorationSettingsNotifier;
 import classcommentary.projectView.DecorationToggleNotifier;
 import com.intellij.ide.plugins.PluginManager;
@@ -64,5 +65,9 @@ public class ProjectViewManager extends AbstractProjectComponent {
                 refreshProjectView(myProject);
             }
         });
+    }
+
+    public Commentary getCommentaryForId(int commentaryId) {
+        return null;
     }
 }

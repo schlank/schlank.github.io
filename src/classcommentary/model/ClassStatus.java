@@ -2,9 +2,6 @@ package classcommentary.model;
 
 import com.intellij.ui.JBColor;
 
-/**
- * Created by mony on 2/15/2016.
- */
 public enum ClassStatus {
     UNRATED("unrated", JBColor.BLUE),
     GREAT("Great", JBColor.GREEN),

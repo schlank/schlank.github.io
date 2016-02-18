@@ -5,25 +5,24 @@ package classcommentary.decoration;
 
 import classcommentary.component.NodeDecoration;
 import classcommentary.component.NodeDecorationType;
+import classcommentary.component.TextDecorationCalculator;
 import classcommentary.model.ClassStatus;
-import com.intellij.ide.plugins.PluginManager;
+import classcommentary.model.Commentary;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
-import com.intellij.ide.projectView.impl.nodes.BasePsiMemberNode;
 import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
 import com.intellij.ide.util.treeView.PresentableNodeDescriptor.ColoredFragment;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.util.PsiUtilBase;
-import com.intellij.ui.JBColor;
 import com.intellij.ui.SimpleTextAttributes;
 
-import java.awt.*;
-
 public class ClassFileDecoration implements NodeDecoration {
-//    private final static JBColor TEMPORARY_COLOR = new JBColor(new Color(77, 81, 84), new Color(115, 119, 122));
-//    private final static String PREFIX = "CC";
-    protected final Logger LOG = Logger.getInstance(getClass());
+    private final Commentary mCommentary;
+
+    public ClassFileDecoration(Commentary commentary) {
+        mCommentary = commentary;
+    }
 
     protected String getName(ProjectViewNode node) {
         if (node instanceof ClassTreeNode) {
@@ -34,7 +33,6 @@ public class ClassFileDecoration implements NodeDecoration {
     }
 
     protected VirtualFile getVirtualFile(ProjectViewNode node) {
-
         ClassTreeNode classNode = (ClassTreeNode) node;
         return PsiUtilBase.getVirtualFile(classNode.getPsiClass());
     }
@@ -51,26 +49,33 @@ public class ClassFileDecoration implements NodeDecoration {
 
     @Override
     public void decorate(ProjectViewNode node, PresentationData data) {
-        addSmartText(data, getName(node), SimpleTextAttributes.REGULAR_ATTRIBUTES);
-        data.addText(formatByClassRating(ClassStatus.UNRATED));
+        addStatusText(data, getName(node));
     }
 
     protected ColoredFragment formatByClassRating(ClassStatus status) {
-
-        SimpleTextAttributes textAttributes = new SimpleTextAttributes(SimpleTextAttributes.STYLE_SMALLER,
-                status.getColor());
+        SimpleTextAttributes textAttributes = attributesByClassStatus(status);
         return new ColoredFragment(" " + status.getLabel(), textAttributes);
     }
 
-    protected void addSmartText(PresentationData data, String text, SimpleTextAttributes attributes) {
+    private SimpleTextAttributes attributesByClassStatus(ClassStatus status) {
+        return new SimpleTextAttributes(SimpleTextAttributes.STYLE_SMALLER,
+                status.getColor());
+    }
+
+    protected void addStatusText(PresentationData data, String text) {
+        ClassStatus status = TextDecorationCalculator.statusByCommentary(mCommentary);
+        SimpleTextAttributes textAttributes = attributesByClassStatus(status);
+        String statusLabel = status.getLabel();
+        String finishText = text + " " + statusLabel;
         boolean add = true;
         for (ColoredFragment existing : data.getColoredText()) {
-            if (existing.getText().equals(text)) {
+            if (existing.getText().equals(finishText)) {
                 add = false;
             }
         }
         if (add) {
-            data.addText(text, attributes);
+            data.addText(text, SimpleTextAttributes.REGULAR_ATTRIBUTES);
+            data.addText(" " + statusLabel, textAttributes);
         }
     }
 }
