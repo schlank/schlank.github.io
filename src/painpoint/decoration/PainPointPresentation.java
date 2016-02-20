@@ -3,6 +3,7 @@ package painpoint.decoration;
 import painpoint.domain.commentary.model.ClassStatus;
 import painpoint.domain.painpoint.model.PainPoint;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,16 +21,8 @@ public class PainPointPresentation {
             return classStatus;
         }
 
-        int thumbsUp = 0;
-        int thumbsDown = 0;
-        for(PainPoint painPoint: mPainPoints) {
-            if(painPoint.isThumbsUp()) {
-                thumbsUp++;
-            }
-            else if(painPoint.isThumbsDown()) {
-                thumbsDown++;
-            }
-        }
+        int thumbsUp = getThumbsUpList().size();
+        int thumbsDown = getThumbsDownList().size();
         if(thumbsUp > 0 && thumbsDown == 0) {
             if(thumbsUp>=2) {
                 classStatus = ClassStatus.GREAT;
@@ -46,9 +39,31 @@ public class PainPointPresentation {
                 classStatus = ClassStatus.BAD;
             }
         }
-        else if(thumbsDown == thumbsDown) {
+        else if(thumbsUp == thumbsDown) {
             classStatus = ClassStatus.OK;
         }
         return classStatus;
+    }
+
+    public List<PainPoint> getPainPointPresentations() {
+        return mPainPoints;
+    }
+    public List<PainPoint> getThumbsUpList() {
+        List<PainPoint> thumbsUp = new ArrayList<>();
+        for(PainPoint painPoint: mPainPoints) {
+            if(painPoint.isThumbsUp()) {
+                thumbsUp.add(painPoint);
+            }
+        }
+        return thumbsUp;
+    }
+    public List<PainPoint> getThumbsDownList() {
+        List<PainPoint> thumbsDown = new ArrayList<>();
+        for(PainPoint painPoint: mPainPoints) {
+            if(painPoint.isThumbsDown()) {
+                thumbsDown.add(painPoint);
+            }
+        }
+        return thumbsDown;
     }
 }
