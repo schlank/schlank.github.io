@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="painpoint.dialog.ClassCommentaryPanel">
-  <grid id="27dc6" binding="mRootPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mRootPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="-1" width="324" height="259"/>
+      <xy x="20" y="-1" width="270" height="181"/>
     </constraints>
     <properties>
       <background color="-3677712"/>
@@ -11,42 +11,39 @@
     <clientProperties>
       <html.disable class="java.lang.Boolean" value="true"/>
     </clientProperties>
-    <border type="none" title="Codeit" title-justification="1" title-position="2">
+    <border type="none" title="A" title-justification="1" title-position="2">
       <font style="1"/>
     </border>
     <children>
-      <component id="91faf" class="javax.swing.JList" binding="mThumbsDownList">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="d9e68" class="javax.swing.JList" binding="mThumbsUpList">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="ae949" class="javax.swing.JCheckBox" binding="mGoodExampleCB">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Good Class"/>
-        </properties>
-      </component>
       <component id="72de6" class="javax.swing.JCheckBox" binding="mPainPointCB">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Report Pain Point"/>
+          <focusable value="false"/>
+          <hideActionText value="true"/>
+          <horizontalTextPosition value="2"/>
+          <icon value="voodoo-doll.png"/>
+          <opaque value="true"/>
+          <selected value="true"/>
+          <text value="&amp;Report Pain Point"/>
+          <verticalAlignment value="1"/>
+          <verticalTextPosition value="1"/>
         </properties>
       </component>
+      <scrollpane id="54627">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="91faf" class="javax.swing.JList" binding="mThumbsDownList">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>

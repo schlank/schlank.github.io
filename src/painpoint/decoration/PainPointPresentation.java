@@ -66,4 +66,8 @@ public class PainPointPresentation {
         }
         return thumbsDown;
     }
+
+    public boolean isPinned() {
+        return false;
+    }
 }
