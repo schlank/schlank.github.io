@@ -14,6 +14,7 @@ import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
 import com.intellij.packageDependencies.ui.PackageDependenciesNode;
 import com.intellij.ui.ColoredTreeCellRenderer;
 import painpoint.domain.painpoint.model.PainPoint;
+import painpoint.pairing.TeamMember;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,10 @@ public class CCProjectViewNodeDecorator implements ProjectViewNodeDecorator {
 
         if (viewNode != null && viewNode instanceof ClassTreeNode) {
             Integer classId = ViewNodeUtil.classIdForNode((ClassTreeNode)viewNode);
-            ProjectViewManager myProjectViewManager = ProjectViewManager.getInstance(viewNode.getProject());
-            PainPointPresentation painPointPresentation = new PainPointPresentation(myProjectViewManager.getPainPointsForClassId(classId));
+            ProjectViewManager projectViewManager = ProjectViewManager.getInstance(viewNode.getProject());
+            String gitPairUser = projectViewManager.getPairString();
+            List<PainPoint> painPoints = projectViewManager.getPainPointsForClassId(classId);
+            PainPointPresentation painPointPresentation = new PainPointPresentation(classId, gitPairUser, painPoints);
             ClassFileDecoration classFileDecoration = new ClassFileDecoration(painPointPresentation);
             classFileDecoration.decorate(viewNode, presentationData);
         }

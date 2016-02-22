@@ -4,6 +4,7 @@ import com.intellij.openapi.project.Project;
 import painpoint.decoration.PainPointPresentation;
 import painpoint.domain.painpoint.model.PainPoint;
 import painpoint.domain.painpoint.model.PainPointDomain;
+import painpoint.pairing.TeamMember;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
@@ -29,12 +30,10 @@ public class ClassCommentaryPanel extends JPanel {
         mPainPointDomain = painPointDomain;
         mPainPointCB.setSelected(mPainPointPresentation.isPinned());
         populateList(mPainPointPresentation.getPainPointPresentations());
-        ActionListener actionListener = new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                AbstractButton abstractButton = (AbstractButton) actionEvent.getSource();
-                boolean selected = abstractButton.getModel().isSelected();
-                updateSelectionData(selected);
-            }
+        ActionListener actionListener = actionEvent -> {
+            AbstractButton abstractButton = (AbstractButton) actionEvent.getSource();
+            boolean selected = abstractButton.getModel().isSelected();
+            updateSelectionData(selected);
         };
         mPainPointCB.addActionListener(actionListener);
     }
@@ -43,7 +42,8 @@ public class ClassCommentaryPanel extends JPanel {
         if(mPainPointPresentation.isPinned() !=isCheckboxSelected) {
             // TODO dont use a reference to the domain here, have something else listen or publish it somehow.
             Integer painPointId = mPainPointPresentation.getmClassId();
-            mPainPointDomain.addOrUpdateForClass(painPointId);
+            String gitPairUser = mPainPointPresentation.getGitPairString();
+            mPainPointDomain.addOrUpdateForClass(painPointId, gitPairUser, isCheckboxSelected);
         }
     }
 
@@ -54,7 +54,6 @@ public class ClassCommentaryPanel extends JPanel {
             mThumbsDownList.add(textComponent);
         }
     }
-
 
     private void createUIComponents() {
         // TODO: place custom component creation code here

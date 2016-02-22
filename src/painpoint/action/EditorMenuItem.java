@@ -1,5 +1,7 @@
 package painpoint.action;
 
+import painpoint.component.ProjectViewManager;
+import painpoint.component.ViewNodeUtil;
 import painpoint.decoration.PainPointPresentation;
 import painpoint.dialog.PluginDialog;
 import painpoint.domain.painpoint.model.PainPoint;
@@ -14,8 +16,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.Nullable;
 import painpoint.domain.commentary.util.DataModelUtil;
-
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -43,26 +43,33 @@ public class EditorMenuItem extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent actionEvent) {
 
-        VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(actionEvent.getDataContext());
+        VirtualFile virtualFile = DataKeys.VIRTUAL_FILE.getData(actionEvent.getDataContext());
         final Project project = actionEvent.getRequiredData(CommonDataKeys.PROJECT);
 
-        List<PainPoint> painPoints = getPainPoints(currentFile, project.getName());
+        ProjectViewManager projectViewManager = ProjectViewManager.getInstance(project);
 
-        createDialog(project, new PainPointPresentation(painPoints));
+        String gitPairString = projectViewManager.getPairString();
+        String projectName = project.getName();
+        Integer classId = getClassId(virtualFile, projectName);
+        List<PainPoint> painPoints = getPainPoints(classId, projectName);
+
+        createDialog(project, new PainPointPresentation(classId, gitPairString, painPoints));
         PluginManager.getLogger().warn("project");
     }
 
     private void createDialog(Project project, PainPointPresentation painPointPresentation) {
 
-
         PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
         pluginDialog.show();
     }
 
-    public List<PainPoint> getPainPoints(VirtualFile virtualFile, String projectName) {
+    private Integer getClassId(VirtualFile virtualFile, String projectName) {
         String className = virtualFile.getName();
         String filePath = virtualFile.getPath();
-        Integer classId = DataModelUtil.classFileId(className, filePath, projectName);
+        return DataModelUtil.classFileId(className, filePath, projectName);
+    }
+
+    public List<PainPoint> getPainPoints(Integer classId, String projectName) {
         return mPainPointDomain.getPainPointsForClassId(true, classId);
     }
 

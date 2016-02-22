@@ -14,11 +14,9 @@ public class PainPointFactory {
     public static PainPoint createPainPoint(ResultSet resultSet) throws SQLException {
         Integer id = resultSet.getInt("id");
         Integer classFileId = resultSet.getInt("classId");
-        Boolean thumbsUp = resultSet.getBoolean("thumbsup");
         Boolean thumbsDown = resultSet.getBoolean("thumbsdown");
-
-
-        return new PainPoint(id, classFileId, thumbsDown);
+        String username = resultSet.getString("username");
+        return new PainPoint(id, classFileId, username, thumbsDown);
     }
 
     public static Map<Integer, PainPoint> createPainPointMap(ResultSet resultSet) throws SQLException {
@@ -28,9 +26,6 @@ public class PainPointFactory {
             PainPoint painPoint = PainPointFactory.createPainPoint(resultSet);
             Integer id = resultSet.getInt("id");
             painPointHashMap.put(id, painPoint);
-            PluginManager.getLogger().warn(count + " " + id);
-            PluginManager.getLogger().warn(count + " " + resultSet.getBoolean("thumbsup"));
-            PluginManager.getLogger().warn(count + " " + resultSet.getBoolean("thumbsdown"));
             count++;
         }
         return painPointHashMap;
@@ -43,9 +38,6 @@ public class PainPointFactory {
             PainPoint painPoint = PainPointFactory.createPainPoint(resultSet);
             Integer id = resultSet.getInt("id");
             painPointHashMap.add(painPoint);
-            PluginManager.getLogger().warn(count + " " + id);
-            PluginManager.getLogger().warn(count + " " + resultSet.getBoolean("thumbsup"));
-            PluginManager.getLogger().warn(count + " " + resultSet.getBoolean("thumbsdown"));
             count++;
         }
         return painPointHashMap;

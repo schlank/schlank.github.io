@@ -2,6 +2,7 @@ package painpoint.decoration;
 
 import painpoint.domain.commentary.model.ClassStatus;
 import painpoint.domain.painpoint.model.PainPoint;
+import painpoint.pairing.TeamMember;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,38 +11,27 @@ public class PainPointPresentation {
 
     private List<PainPoint> mPainPoints;
     private Integer mClassId;
+    private String mGitPairName;
 
-    public PainPointPresentation(Integer classId, List<PainPoint> painPoints) {
+    public PainPointPresentation(Integer classId, String gitPairName, List<PainPoint> painPoints) {
         mPainPoints = painPoints;
         mClassId = classId;
+        mGitPairName = gitPairName;
     }
     public ClassStatus getClassStatus() {
 
         ClassStatus classStatus = ClassStatus.UNRATED;
-        if(!mPainPoints.isEmpty()) {
-            return classStatus;
-        }
-
-        int thumbsUp = getThumbsUpList().size();
-        int thumbsDown = getThumbsDownList().size();
-        if(thumbsUp > 0 && thumbsDown == 0) {
-            if(thumbsUp>=2) {
-                classStatus = ClassStatus.GREAT;
+        if(mPainPoints != null) {
+            int painPointCount = mPainPoints.size();
+            if(painPointCount == 1) {
+                classStatus = ClassStatus.OK;
             }
-            else {
-                classStatus = ClassStatus.GOOD;
-            }
-        }
-        else if(thumbsDown > 0 && thumbsUp == 0) {
-            if(thumbsDown>=2) {
-                classStatus = ClassStatus.PAINPOINT;
-            }
-            else {
+            else if(painPointCount==2) {
                 classStatus = ClassStatus.BAD;
             }
-        }
-        else if(thumbsUp == thumbsDown) {
-            classStatus = ClassStatus.OK;
+            else if(painPointCount>=3) {
+                classStatus = ClassStatus.PAINPOINT;
+            }
         }
         return classStatus;
     }
@@ -49,15 +39,7 @@ public class PainPointPresentation {
     public List<PainPoint> getPainPointPresentations() {
         return mPainPoints;
     }
-    public List<PainPoint> getThumbsUpList() {
-        List<PainPoint> thumbsUp = new ArrayList<>();
-        for(PainPoint painPoint: mPainPoints) {
-            if(painPoint.isThumbsUp()) {
-                thumbsUp.add(painPoint);
-            }
-        }
-        return thumbsUp;
-    }
+
     public List<PainPoint> getThumbsDownList() {
         List<PainPoint> thumbsDown = new ArrayList<>();
         for(PainPoint painPoint: mPainPoints) {
@@ -74,5 +56,9 @@ public class PainPointPresentation {
 
     public Integer getmClassId() {
         return mClassId;
+    }
+
+    public String getGitPairString() {
+        return mGitPairName;
     }
 }

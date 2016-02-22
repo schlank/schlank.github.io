@@ -214,16 +214,12 @@ public class PainPointDomain {
 
 
     public void addOrUpdateForClass(Integer classId, String userName, boolean painValue) {
-
         PainPoint painPoint = new PainPoint(null, classId, userName, painValue);
-        PainPointFactory.createPainPoint();
-
         if(hasPointPointForUser(classId, userName)) {
             updatePainPoint(painPoint);
         }
         else {
             insertPainPoint(painPoint);
         }
-
     }
 }
