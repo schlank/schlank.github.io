@@ -1,5 +1,6 @@
 package painpoint.domain.painpoint.model;
 
+import b.b.P;
 import com.intellij.ide.plugins.PluginManager;
 import groovy.lang.Singleton;
 
@@ -34,6 +35,19 @@ public class PainPointDomain {
             PluginManager.getLogger().warn("ClassNotFoundException " + cnfex.getMessage());
         }
         return null;
+    }
+
+    private boolean hasPointPointForUser(Integer classId, String userName) {
+
+        List<PainPoint> painPointsForClass = getPainPointsCacheForClassId(classId);
+
+        for(PainPoint painPoint : painPointsForClass) {
+            if(painPoint.getUserName().equalsIgnoreCase(userName)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void deletePainPointTable() {
@@ -174,5 +188,42 @@ public class PainPointDomain {
             }
         }
         return painPointList;
+    }
+
+    private void updatePointPointForClassId(Integer classId) {
+
+    }
+
+    private void updatePainPoint(PainPoint painPoint) {
+        try {
+            Connection conn = getConnection();
+            if (conn != null) {
+                Statement stat = conn.createStatement();
+                String insertTableSQL = "UPDATE " + mTableName +
+                        "("+FIELDS+") " +
+                        "VALUES(" + painPoint.toSQLValues() + ")";
+                stat.execute(insertTableSQL);
+                stat.close();
+                conn.close();
+            }
+        }
+        catch (SQLException ex) {
+            PluginManager.getLogger().warn("SQLException " + ex.getMessage());
+        }
+    }
+
+
+    public void addOrUpdateForClass(Integer classId, String userName, boolean painValue) {
+
+        PainPoint painPoint = new PainPoint(null, classId, userName, painValue);
+        PainPointFactory.createPainPoint();
+
+        if(hasPointPointForUser(classId, userName)) {
+            updatePainPoint(painPoint);
+        }
+        else {
+            insertPainPoint(painPoint);
+        }
+
     }
 }

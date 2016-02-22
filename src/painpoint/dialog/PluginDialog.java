@@ -5,6 +5,7 @@ import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.LabeledComponent;
 import org.jetbrains.annotations.Nullable;
 import painpoint.decoration.PainPointPresentation;
+import painpoint.domain.painpoint.model.PainPointDomain;
 
 import javax.swing.*;
 
@@ -12,10 +13,10 @@ public class PluginDialog extends DialogWrapper {
 
     private LabeledComponent<ClassCommentaryPanel> jPanelLabeledComponent;
 
-    public PluginDialog(PainPointPresentation painPointPresentation, Project project, boolean canBeParent, boolean applicationModalIfPossible) {
+    public PluginDialog(PainPointPresentation painPointPresentation, PainPointDomain pointDomain, Project project, boolean canBeParent, boolean applicationModalIfPossible) {
         super(project, canBeParent, applicationModalIfPossible);
         setTitle("DialogTitle");
-        ClassCommentaryPanel classCommentaryPanel = new ClassCommentaryPanel(painPointPresentation);
+        ClassCommentaryPanel classCommentaryPanel = new ClassCommentaryPanel(painPointPresentation, pointDomain, project);
         jPanelLabeledComponent = LabeledComponent.create(classCommentaryPanel, "wtf mate");
         init();
     }

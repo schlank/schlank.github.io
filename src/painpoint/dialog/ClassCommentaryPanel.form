@@ -26,7 +26,7 @@
           <icon value="voodoo-doll.png"/>
           <opaque value="true"/>
           <selected value="true"/>
-          <text value="&amp;Report Pain Point"/>
+          <text value="Report Pain Point"/>
           <verticalAlignment value="1"/>
           <verticalTextPosition value="1"/>
         </properties>

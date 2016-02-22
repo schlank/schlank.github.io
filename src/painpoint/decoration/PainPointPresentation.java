@@ -5,14 +5,15 @@ import painpoint.domain.painpoint.model.PainPoint;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class PainPointPresentation {
 
     private List<PainPoint> mPainPoints;
+    private Integer mClassId;
 
-    public PainPointPresentation(List<PainPoint> painPoints) {
+    public PainPointPresentation(Integer classId, List<PainPoint> painPoints) {
         mPainPoints = painPoints;
+        mClassId = classId;
     }
     public ClassStatus getClassStatus() {
 
@@ -69,5 +70,9 @@ public class PainPointPresentation {
 
     public boolean isPinned() {
         return false;
+    }
+
+    public Integer getmClassId() {
+        return mClassId;
     }
 }

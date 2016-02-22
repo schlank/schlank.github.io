@@ -54,7 +54,8 @@ public class EditorMenuItem extends AnAction {
 
     private void createDialog(Project project, PainPointPresentation painPointPresentation) {
 
-        PluginDialog pluginDialog = new PluginDialog(painPointPresentation, project, false, true);
+
+        PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
         pluginDialog.show();
     }
 

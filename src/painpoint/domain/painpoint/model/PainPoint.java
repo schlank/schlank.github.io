@@ -5,18 +5,18 @@ public class PainPoint {
     // Model Fields
     private Integer mDatabaseUid;
     private Integer mClassId;
-    private boolean mThumbsUp;
+    private String mUserName;
     private boolean mThumbsDown;
 
-    public PainPoint(Integer databaseId, Integer classId, boolean thumbsUp, boolean thumbsDown) {
+    public PainPoint(Integer databaseId, Integer classId, String userName, boolean thumbsDown) {
         mDatabaseUid = databaseId;
         mClassId = classId;
-        mThumbsUp = thumbsUp;
+        mUserName = userName;
         mThumbsDown = thumbsDown;
     }
 
     public String toSQLValues() {
-        return getDatabaseUid() +",'"+getClassId()+"', '"+isThumbsUp()+"', '"+isThumbsDown()+"'";
+        return getDatabaseUid() +",'"+getClassId()+"', '"+getUserName()+"', '"+isThumbsDown()+"'";
     }
 
     public Integer getDatabaseUid() {
@@ -27,11 +27,11 @@ public class PainPoint {
         return mClassId;
     }
 
-    public boolean isThumbsDown() {
-        return mThumbsDown;
+    public String getUserName() {
+        return mUserName;
     }
 
-    public boolean isThumbsUp() {
-        return mThumbsUp;
+    public boolean isThumbsDown() {
+        return mThumbsDown;
     }
 }

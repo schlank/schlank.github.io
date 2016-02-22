@@ -17,7 +17,8 @@ public class PainPointFactory {
         Boolean thumbsUp = resultSet.getBoolean("thumbsup");
         Boolean thumbsDown = resultSet.getBoolean("thumbsdown");
 
-        return new PainPoint(id, classFileId, thumbsUp, thumbsDown);
+
+        return new PainPoint(id, classFileId, thumbsDown);
     }
 
     public static Map<Integer, PainPoint> createPainPointMap(ResultSet resultSet) throws SQLException {
