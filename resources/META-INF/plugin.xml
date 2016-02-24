@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.philipleder.plugin.painpoint</id>
   <name>Plugin display name here</name>
-  <version>1.0</version>
+  <version>1.1</version>
   <vendor email="phil@philipleder.com" url="http://philipleder.com">Phil Leder</vendor>
 
   <description><![CDATA[

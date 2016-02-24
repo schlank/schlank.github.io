@@ -1,5 +1,8 @@
 package painpoint.component;
 
+import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.DataKeys;
+import com.intellij.openapi.vfs.VirtualFile;
 import painpoint.decoration.DecorationToggleNotifier;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.projectView.ProjectView;
@@ -9,6 +12,9 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vcs.changes.committed.VcsConfigurationChangeListener;
 import com.intellij.util.messages.MessageBusConnection;
+import painpoint.decoration.PainPointPresentation;
+import painpoint.dialog.PluginDialog;
+import painpoint.domain.commentary.util.DataModelUtil;
 import painpoint.domain.painpoint.model.PainPoint;
 import painpoint.domain.painpoint.model.PainPointDomain;
 import painpoint.git.GitRunner;
@@ -24,16 +30,30 @@ import java.util.List;
 
 public class ProjectViewManager extends AbstractProjectComponent {
 
-    private final Logger LOG = Logger.getInstance(getClass());
     private MessageBusConnection mConnection;
     private PainPointDomain mPainPointDomain;
     private PairController mPairController;
 
     public ProjectViewManager(Project project) {
         super(project);
-
         updateState(project);
         mPainPointDomain = new PainPointDomain();
+    }
+
+    public Integer getClassId(VirtualFile virtualFile, String projectName) {
+        String className = virtualFile.getName();
+        String filePath = virtualFile.getPath();
+        return DataModelUtil.classFileId(className, filePath, projectName);
+    }
+
+    public List<PainPoint> getPainPoints(Integer classId, String projectName) {
+        return mPainPointDomain.getPainPointsForClassId(true, classId);
+    }
+
+    private void createDialog(Project project, PainPointPresentation painPointPresentation) {
+
+        PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
+        pluginDialog.show();
     }
 
     public static ProjectViewManager getInstance(Project project) {

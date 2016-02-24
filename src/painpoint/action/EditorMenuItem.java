@@ -43,34 +43,34 @@ public class EditorMenuItem extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent actionEvent) {
 
-        VirtualFile virtualFile = DataKeys.VIRTUAL_FILE.getData(actionEvent.getDataContext());
+        // get the project instance.
         final Project project = actionEvent.getRequiredData(CommonDataKeys.PROJECT);
 
+        // with the project instance get our project view manager.
         ProjectViewManager projectViewManager = ProjectViewManager.getInstance(project);
 
+        // get the current pair user(s)
         String gitPairString = projectViewManager.getPairString();
         String projectName = project.getName();
-        Integer classId = getClassId(virtualFile, projectName);
-        List<PainPoint> painPoints = getPainPoints(classId, projectName);
 
+        // get the currently chosen file.
+        VirtualFile virtualFile = DataKeys.VIRTUAL_FILE.getData(actionEvent.getDataContext());
+
+        // With the file and project name get the classID
+        Integer classId = projectViewManager.getClassId(virtualFile, projectName);
+
+        //get out list of pain points.
+        List<PainPoint> painPoints = projectViewManager.getPainPoints(classId, projectName);
+
+        //Create the show the dialog.
         createDialog(project, new PainPointPresentation(classId, gitPairString, painPoints));
-        PluginManager.getLogger().warn("project");
+
     }
 
     private void createDialog(Project project, PainPointPresentation painPointPresentation) {
 
         PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
         pluginDialog.show();
-    }
-
-    private Integer getClassId(VirtualFile virtualFile, String projectName) {
-        String className = virtualFile.getName();
-        String filePath = virtualFile.getPath();
-        return DataModelUtil.classFileId(className, filePath, projectName);
-    }
-
-    public List<PainPoint> getPainPoints(Integer classId, String projectName) {
-        return mPainPointDomain.getPainPointsForClassId(true, classId);
     }
 
     private @Nullable

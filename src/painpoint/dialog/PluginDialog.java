@@ -15,9 +15,9 @@ public class PluginDialog extends DialogWrapper {
 
     public PluginDialog(PainPointPresentation painPointPresentation, PainPointDomain pointDomain, Project project, boolean canBeParent, boolean applicationModalIfPossible) {
         super(project, canBeParent, applicationModalIfPossible);
-        setTitle("DialogTitle");
+        setTitle("Pain Point Reports");
         ClassCommentaryPanel classCommentaryPanel = new ClassCommentaryPanel(painPointPresentation, pointDomain, project);
-        jPanelLabeledComponent = LabeledComponent.create(classCommentaryPanel, "wtf mate");
+        jPanelLabeledComponent = LabeledComponent.create(classCommentaryPanel, "Report a pain point.");
         init();
     }
 
