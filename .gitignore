@@ -1,1 +1,9 @@
 out/
+
+## Directory-based project format
+.idea/*
+
+
+## .idea directory exceptions.  Do not ignore.
+##Shared run configurations
+!.idea/runConfigurations/
