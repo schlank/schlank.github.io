@@ -2,23 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25cb192f-9dc9-468a-843f-1acf65c00f9a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/painpoint/dialog/FancyCheckbox.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ClassCommentary.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/voodoo-doll-happy-pinned.png" afterPath="$PROJECT_DIR$/resources/voodoo-doll-happy-pinned.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/voodoo-doll-happy.png" afterPath="$PROJECT_DIR$/resources/voodoo-doll-happy.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/voodoo-doll-sad-unpinned.png" afterPath="$PROJECT_DIR$/resources/voodoo-doll-sad-unpinned.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/voodoo-doll-sad.png" afterPath="$PROJECT_DIR$/resources/voodoo-doll-sad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/voodoo-doll.png" afterPath="$PROJECT_DIR$/resources/voodoo-doll.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/painpoint/dialog/FantasyCheckbox.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/painpoint/dialog/VoodooButton.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/META-INF/plugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/META-INF/plugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/AbstractLayout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/DimensionInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/GridConstraints.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/GridLayoutManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/HorizontalInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/LayoutState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/Spacer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/SupportCode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/Util.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/com/intellij/uiDesigner/core/VerticalInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/CommentaryToolboxProject$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/CommentaryToolboxProject.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/action/EditorMenuItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/action/ProjectViewMenuItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/component/ProjectViewManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/component/ViewNodeUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/decoration/CCProjectViewNodeDecorator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/decoration/ClassFileDecoration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/decoration/DecorationToggleNotifier.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/decoration/NodeDecorationType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/decoration/PainPointPresentation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/decoration/TextDecorationCalculator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/dialog/ClassCommentaryPanel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/dialog/PluginDialog.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/commentary/CommentaryDomain.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/commentary/model/ClassStatus.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/commentary/model/Commentary.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/commentary/model/CommentaryFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/commentary/util/ClassStatusCalculation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/commentary/util/DataModelUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/commentary/util/DataModelUtilTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/painpoint/model/PainPoint.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/painpoint/model/PainPointDomain.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/domain/painpoint/model/PainPointFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/git/GitRunner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/pairing/PairConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/pairing/PairController$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/pairing/PairController$AlphabeticalName.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/pairing/PairController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/pairing/TeamMember.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/yaml/Node.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/painpoint/yaml/Yaml.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/thumbsUp.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/voodoo-doll-happy-pinned.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/voodoo-doll-happy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/voodoo-doll-sad-unpinned.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/voodoo-doll-sad.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/PainPoints/voodoo-doll.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/voodoo-doll.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PainPoints.iml" afterPath="$PROJECT_DIR$/PainPoints.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/painpoint/action/EditorMenuItem.java" afterPath="$PROJECT_DIR$/src/painpoint/action/EditorMenuItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/painpoint/component/ProjectViewManager.java" afterPath="$PROJECT_DIR$/src/painpoint/component/ProjectViewManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.form" afterPath="$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.java" afterPath="$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/painpoint/dialog/PluginDialog.java" afterPath="$PROJECT_DIR$/src/painpoint/dialog/PluginDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/painpoint/dialog/FancyCheckbox.java" afterPath="$PROJECT_DIR$/src/painpoint/dialog/FancyCheckbox.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java" afterPath="$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java" />
     </list>
     <ignored path="ClassCommentary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,12 +97,12 @@
     <favorites_list name="ClassCommentary" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ClassCommentaryPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+            <state vertical-scroll-proportion="-3.8148148">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,11 +110,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VoodooCheckbox.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java">
+      <file leaf-file-name="IdeEventQueue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Documents/intellij-community/platform/platform-impl/src/com/intellij/ide/IdeEventQueue.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <caret line="867" column="0" selection-start-line="867" selection-start-column="0" selection-end-line="867" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VoodooButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/VoodooButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.0">
+              <caret line="29" column="43" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,21 +132,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="voodoo-doll.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/voodoo-doll.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="voodoo-doll-happy.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-happy.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="voodoo-doll-happy-pinned.png" pinned="false" current-in-tab="false">
+      <file leaf-file-name="voodoo-doll-happy-pinned.png" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-happy-pinned.png">
           <provider selected="true" editor-type-id="images">
             <state />
@@ -106,27 +146,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PluginDialog.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/PluginDialog.java">
+      <file leaf-file-name="FantasyCheckbox.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/FantasyCheckbox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31989247">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="26" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2420#2421#0" expanded="true" />
+                <element signature="e#2451#2452#0" expanded="true" />
+                <element signature="e#2604#2605#0" expanded="true" />
+                <element signature="e#2640#2641#0" expanded="true" />
+                <element signature="e#2682#2683#0" expanded="true" />
+                <element signature="e#2720#2721#0" expanded="true" />
+                <element signature="e#2762#2763#0" expanded="true" />
+                <element signature="e#2797#2798#0" expanded="true" />
+                <element signature="e#2841#2842#0" expanded="true" />
+                <element signature="e#2878#2879#0" expanded="true" />
+                <element signature="e#2912#2913#0" expanded="true" />
+                <element signature="e#2942#2943#0" expanded="true" />
+                <element signature="e#2976#2977#0" expanded="true" />
+                <element signature="e#3006#3007#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="voodoo-doll-sad.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-sad.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="voodoo-doll-sad-unpinned.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-sad-unpinned.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="PluginDialog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/PluginDialog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -153,7 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/classcommentary/model/FileStatus.java" />
         <option value="$PROJECT_DIR$/src/classcommentary/dialog/PluginDialog.java" />
         <option value="$PROJECT_DIR$/src/classcommentary/projectView/impl/FileDecoration.java" />
         <option value="$PROJECT_DIR$/src/classcommentary/projectView/ProjectViewStatus.java" />
@@ -198,12 +249,13 @@
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/painpoint/dialog/PluginDialog.java" />
         <option value="$PROJECT_DIR$/src/painpoint/component/ProjectViewManager.java" />
-        <option value="$PROJECT_DIR$/src/painpoint/action/EditorMenuItem.java" />
         <option value="$PROJECT_DIR$/src/painpoint/dialog/FantasyCheckbox.java" />
-        <option value="$PROJECT_DIR$/src/painpoint/dialog/FancyCheckbox.java" />
         <option value="$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java" />
-        <option value="$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.java" />
+        <option value="$PROJECT_DIR$/src/painpoint/action/EditorMenuItem.java" />
+        <option value="$PROJECT_DIR$/src/painpoint/dialog/FancyCheckbox.java" />
+        <option value="$PROJECT_DIR$/src/painpoint/dialog/VoodooButton.java" />
         <option value="$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.form" />
+        <option value="$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.java" />
       </list>
     </option>
   </component>
@@ -227,9 +279,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1443" />
-    <option name="height" value="1087" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -237,6 +288,9 @@
         <expanded-state>
           <State>
             <id />
+          </State>
+          <State>
+            <id>Application Server Specific Inspections</id>
           </State>
           <State>
             <id>Struts</id>
@@ -278,6 +332,34 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="PainPoints">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="PainPoints">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -397,20 +479,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ClassCommentary">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -424,7 +492,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -433,7 +501,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="390" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="300" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="281" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="309" />
@@ -454,21 +522,25 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistoryKey" value="NodeDecorationType&#9;FILE&#9;file://C:/Users/mony/Documents/ClassCommentary/src/classcommentary/component/NodeDecorationType.java" />
     <property name="recentsLimit" value="5" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mony\Repos\PainPoints\resources" />
-      <recent name="C:\Users\mony\Repos\PainPoints\resources\icons" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="classcommentary" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/painpoint/images" />
       <recent name="C:\Users\mony\Documents\ClassCommentary\src\classcommentary\decoration" />
       <recent name="C:\Users\mony\Documents\ClassCommentary\src\classcommentary\config" />
       <recent name="C:\Users\mony\Documents\ClassCommentary\src\classcommentary\component" />
       <recent name="C:\Users\mony\Documents\ClassCommentary\src\classcommentary" />
-      <recent name="C:\Users\mony\Documents\ClassCommentary\src\classcommentary\extension" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/META-INF" />
+      <recent name="$PROJECT_DIR$/images" />
+      <recent name="C:\Users\mony\Repos\PainPoints\resources" />
+      <recent name="C:\Users\mony\Repos\PainPoints\resources\icons" />
     </key>
   </component>
   <component name="RunManager" selected="Plugin.ClassCommentaryDev">
@@ -867,6 +939,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -920,35 +997,35 @@
       <workItem from="1455682237947" duration="9119000" />
       <workItem from="1456182030632" duration="623000" />
       <workItem from="1456286382644" duration="9182000" />
+      <workItem from="1456347638385" duration="9627000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90888000" />
+    <option name="totallyTimeSpent" value="100515000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1443" height="1087" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265097" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3240372" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.209826" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45683932" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3538893" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31171876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33674514" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3160667" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43909928" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5589942" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -958,6 +1035,7 @@
       <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33674514" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="DBOutput" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -981,16 +1059,52 @@
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/painpoint/dialog/FantasyCheckbox.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/painpoint/dialog/VoodooButton.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/painpoint/dialog/VoodooButton.java</url>
+          <line>22</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/painpoint/dialog/VoodooButton.java</url>
+          <line>19</line>
+          <properties />
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.java</url>
+          <line>71</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="55" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
-        <watch expression="mPainPointPresentation.isPinned()" language="JAVA" custom="" />
-        <watch expression="getClass()" language="JAVA" custom="" />
-        <watch expression=".getResource(&quot;icons/voodoo-doll-happy.png&quot;)" language="JAVA" custom="" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1004,6 +1118,37 @@
     </option>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-happy-pinned.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.form">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/PluginDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-sad.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-sad-unpinned.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1120,15 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1136,7 +1272,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20039293">
           <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1144,7 +1279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20039293">
           <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1152,7 +1286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20039293">
           <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1160,7 +1293,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20039293">
           <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,7 +1300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13359529">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1176,7 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7777777">
           <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,7 +1314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7777777">
           <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,7 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17849898">
           <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1200,7 +1328,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35091278">
           <caret line="119" column="21" selection-start-line="119" selection-start-column="21" selection-end-line="119" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,7 +1335,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="37" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1220,65 +1346,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/javax/swing/JPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3118279">
-          <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/javax/swing/JComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="183" column="22" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/painpoint/action/EditorMenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/FancyCheckbox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1827957">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2350#2351#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
-            <element signature="e#2534#2535#0" expanded="true" />
-            <element signature="e#2570#2571#0" expanded="true" />
-            <element signature="e#2612#2613#0" expanded="true" />
-            <element signature="e#2650#2651#0" expanded="true" />
-            <element signature="e#2692#2693#0" expanded="true" />
-            <element signature="e#2727#2728#0" expanded="true" />
-            <element signature="e#2771#2772#0" expanded="true" />
-            <element signature="e#2808#2809#0" expanded="true" />
-            <element signature="e#2842#2843#0" expanded="true" />
-            <element signature="e#2872#2873#0" expanded="true" />
-            <element signature="e#2906#2907#0" expanded="true" />
-            <element signature="e#2936#2937#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/voodoo-doll.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-happy.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-happy-pinned.png">
+    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0793103">
+          <caret line="46" column="10" selection-start-line="41" selection-start-column="8" selection-end-line="46" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.352459">
+          <caret line="2627" column="25" selection-start-line="2627" selection-start-column="25" selection-end-line="2627" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/intellij-community/platform/platform-impl/src/com/intellij/openapi/wm/impl/FocusManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42365593">
+          <caret line="960" column="0" selection-start-line="960" selection-start-column="0" selection-end-line="960" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-sad-unpinned.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1288,39 +1387,29 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-sad-unpinned.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/PluginDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/javax/swing/JCheckBox.java">
+    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/FancyCheckbox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="226" column="16" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.86885244">
+          <caret line="148" column="1" selection-start-line="6" selection-start-column="27" selection-end-line="148" selection-end-column="1" />
           <folding>
-            <element signature="e#6707#6708#0" expanded="false" />
-            <element signature="e#6761#6762#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/VoodooCheckbox.java">
+    <entry file="file://$PROJECT_DIR$/src/painpoint/action/EditorMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="1.4918033">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,13 +1417,76 @@
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/PluginDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31989247">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16629712">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/FantasyCheckbox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2420#2421#0" expanded="true" />
+            <element signature="e#2451#2452#0" expanded="true" />
+            <element signature="e#2604#2605#0" expanded="true" />
+            <element signature="e#2640#2641#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+            <element signature="e#2720#2721#0" expanded="true" />
+            <element signature="e#2762#2763#0" expanded="true" />
+            <element signature="e#2797#2798#0" expanded="true" />
+            <element signature="e#2841#2842#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
+            <element signature="e#2942#2943#0" expanded="true" />
+            <element signature="e#2976#2977#0" expanded="true" />
+            <element signature="e#3006#3007#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/VoodooButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1092233">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/intellij-community/platform/platform-impl/src/com/intellij/ide/IdeEventQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="867" column="0" selection-start-line="867" selection-start-column="0" selection-end-line="867" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/painpoint/dialog/ClassCommentaryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.8148148">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/voodoo-doll-happy-pinned.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
@@ -1394,6 +1546,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

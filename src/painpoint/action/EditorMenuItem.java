@@ -16,6 +16,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.Nullable;
 import painpoint.domain.commentary.util.DataModelUtil;
+
+import javax.swing.*;
 import java.util.List;
 
 /**
@@ -69,8 +71,14 @@ public class EditorMenuItem extends AnAction {
 
     private void createDialog(Project project, PainPointPresentation painPointPresentation) {
 
-        PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
-        pluginDialog.show();
+        SwingUtilities.invokeLater(new Runnable(){
+            public void run()
+            {
+                PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
+                pluginDialog.show();
+            }
+        });
+
     }
 
     private @Nullable

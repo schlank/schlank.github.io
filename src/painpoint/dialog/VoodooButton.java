@@ -1,10 +1,11 @@
 package painpoint.dialog;
-import java.awt.FlowLayout;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.*;
 
-public class FancyCheckbox extends JButton implements MouseListener {
+public class VoodooButton extends JButton implements MouseListener {
 
     private boolean selected;
     private String selectedLabel;
@@ -14,8 +15,8 @@ public class FancyCheckbox extends JButton implements MouseListener {
     private JLabel lblIcon;
     private JLabel lblText;
 
-    public FancyCheckbox(String selectedLabel, String unSelectedLabel,
-                           ImageIcon selectedIcon, ImageIcon unSelectedIcon) {
+    public VoodooButton(String selectedLabel, String unSelectedLabel,
+                         ImageIcon selectedIcon, ImageIcon unSelectedIcon) {
         this.selectedLabel = selectedLabel;
         this.unSelectedLabel = unSelectedLabel;
         this.selectedIcon = selectedIcon;
