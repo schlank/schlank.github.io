@@ -27,12 +27,12 @@ public class VoodooButton extends JButton implements MouseListener {
 
     private void createComponents() {
         selected = false;
-        lblIcon = new JLabel(unSelectedIcon);
+//        lblIcon = new JLabel(unSelectedIcon);
         lblText = new JLabel(unSelectedLabel);
         setLayout(new FlowLayout());
-        add(lblIcon);
+//        add(lblIcon);
         add(lblText);
-        lblIcon.addMouseListener(this);
+//        lblIcon.addMouseListener(this);
         lblText.addMouseListener(this);
     }
 
@@ -73,8 +73,10 @@ public class VoodooButton extends JButton implements MouseListener {
     @Override
     public void addMouseListener(MouseListener listener) {
         super.addMouseListener(listener);
-        lblIcon.addMouseListener(listener);
-        lblText.addMouseListener(listener);
+        if(lblIcon != null && lblText != null) {
+            lblIcon.addMouseListener(listener);
+            lblText.addMouseListener(listener);
+        }
     }
 
     @Override

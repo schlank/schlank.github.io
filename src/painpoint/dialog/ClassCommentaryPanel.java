@@ -24,18 +24,6 @@ public class ClassCommentaryPanel extends JPanel {
 
         setVisible(true);
 
-        ImageIcon voodooIcon = new ImageIcon("voodoo-doll-happy-pinned.png");
-        ImageIcon selectedIcon =  new ImageIcon("voodoo-doll-sad.png");
-
-        mPainPointButton = new VoodooButton(
-                "Pain Point reported.",
-                "Report Pain Point",
-                selectedIcon,
-                voodooIcon
-        );
-        mPainPointButton.setSize(100, 200);
-
-
         add(mRootPanel);
         mPainPointPresentation = painPointPresentation;
         mPainPointDomain = painPointDomain;
@@ -65,6 +53,22 @@ public class ClassCommentaryPanel extends JPanel {
             textComponent.setText("Reported Pain Point:" + painPoint.getClassId());
             mThumbsDownList.add(textComponent);
         }
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        ImageIcon voodooIcon = new ImageIcon("/PainPoints/voodoo-doll-happy-pinned.png");
+        ImageIcon selectedIcon =  new ImageIcon("/PainPoints/voodoo-doll-sad.png");
+
+        mPainPointButton = new VoodooButton(
+                "Pain Point reported.",
+                "Report Pain Point",
+                selectedIcon,
+                voodooIcon
+        );
+        mPainPointButton.setSize(100, 200);
+//        mPainPointButton.setVisible(true);
+
     }
 
 //    /** Returns an ImageIcon, or null if the path was invalid. */
