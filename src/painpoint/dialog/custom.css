@@ -1,0 +1,79 @@
+
+.check-box:selected>.box>.mark{
+    -fx-background-color: transparent;
+    -fx-background-position: center;
+    -fx-background-repeat: stretch;
+    -fx-background-image: url("/Users/q9iw/PainPoints/src/painpoint/resources/voodoo-doll-sad.png");
+}
+
+.check-box:default.box>.button {
+    -fx-background-color: blanchedalmond;
+    -fx-background-position: center;
+    -fx-background-repeat: stretch;
+    /*-fx-background-image: url("/Users/q9iw/PainPoints/src/painpoint/resources/voodoo-doll-happy.png");*/
+}
+
+.check-box {
+    /*-fx-skin: "com.sun.javafx.scene.control.skin.CheckBoxSkin";*/
+    -fx-label-padding: 0.0em 0.0em 0.0em 5em; /* 0 0 0 5 */
+    -fx-background-color: aqua;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center;
+}
+
+
+.check-box .text {
+    -fx-text-fill: -fx-text-background-color;
+}
+
+.check-box .box {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 2, 2, 2, 2;
+    -fx-padding: .75em; /* 3 -- padding from the outside edge to the mark */
+}
+
+.check-box:focused .box {
+    -fx-background-color: transparent;
+    -fx-background-insets: -1.4, 0, 1, 2;
+    -fx-background-radius: 3.4, 2, 1, 1;
+}
+
+.check-box:hover .box {
+    -fx-color: -fx-hover-base;
+}
+
+.check-box:armed .box {
+    -fx-color: -fx-pressed-base;
+}
+
+.check-box .mark {
+    -fx-background-color: transparent;
+    /*-fx-background-image: url("/Users/q9iw/PainPoints/src/painpoint/resources/voodoo-doll-happy.png");*/
+    -fx-background-insets: 1 0 0 0, 0;
+    -fx-padding: 0; /* 4 -- this is half the size of the mark */
+    /*-fx-shape: "M0,4H2L3,6L6,0H8L4,8H2Z";*/
+}
+
+/* TODO: scale the shape - the problem is that it is not within a square
+ * boundary.
+ */
+.check-box:indeterminate .mark {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-scale-shape: false;
+}
+
+/*.check-box:selected .mark {*/
+    /*-fx-background-color: -fx-mark-highlight-color, -fx-mark-color;*/
+/*}*/
+
+.check-box:selected .mark {
+    -fx-background-color:transparent;
+    -fx-mark-highlight-color:yellow;
+    -fx-mark-color:reple:red;
+    -fx-image: url("/voodoo-doll-happy.png");
+}
+
+.check-box:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}

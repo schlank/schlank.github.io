@@ -1,9 +1,6 @@
 package painpoint.dialog;
 
-import com.intellij.ui.JBColor;
-
 import javax.swing.*;
-import java.awt.*;
 
 public class VoodooCheckbox extends JCheckBox {
 
