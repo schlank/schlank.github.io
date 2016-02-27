@@ -3,7 +3,7 @@
     -fx-background-color: transparent;
     -fx-background-position: center;
     -fx-background-repeat: stretch;
-    -fx-background-image: url("/Users/q9iw/PainPoints/src/painpoint/resources/voodoo-doll-sad.png");
+    -fx-background-image: url("/voodoo-doll-sad.png");
 }
 
 .check-box:default.box>.button {
@@ -70,7 +70,6 @@
 .check-box:selected .mark {
     -fx-background-color:transparent;
     -fx-mark-highlight-color:yellow;
-    -fx-mark-color:reple:red;
     -fx-image: url("/voodoo-doll-happy.png");
 }
 

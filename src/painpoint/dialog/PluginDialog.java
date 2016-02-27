@@ -56,7 +56,6 @@ public class PluginDialog extends DialogWrapper {
                 scene.getStylesheets().add(getClass().getResource("custom.css").toExternalForm());
                 Text text  =  new Text();
 
-
                 setPreferredSize(new Dimension(800, 600));
                 text.setX(100);
                 text.setY(100);
