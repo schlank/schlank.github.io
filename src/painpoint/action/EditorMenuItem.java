@@ -1,5 +1,25 @@
 package painpoint.action;
 
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.ui.DialogWrapper;
+import com.intellij.openapi.ui.popup.ComponentPopupBuilder;
+import com.intellij.openapi.ui.popup.JBPopup;
+import com.intellij.openapi.ui.popup.JBPopupFactory;
+import com.intellij.openapi.vcs.QuantitySelection;
+import com.intellij.ui.awt.RelativePoint;
+import com.intellij.ui.components.JBCheckBox;
+import com.sun.jna.platform.win32.COM.TypeInfoUtil;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TitledPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import painpoint.component.ProjectViewManager;
 import painpoint.component.ViewNodeUtil;
 import painpoint.decoration.PainPointPresentation;
@@ -18,6 +38,7 @@ import org.jetbrains.annotations.Nullable;
 import painpoint.domain.commentary.util.DataModelUtil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 /**
@@ -71,14 +92,65 @@ public class EditorMenuItem extends AnAction {
 
     private void createDialog(Project project, PainPointPresentation painPointPresentation) {
 
-        SwingUtilities.invokeLater(new Runnable(){
-            public void run()
-            {
-                PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
-                pluginDialog.show();
-            }
-        });
+        PluginDialog pluginDialog = new PluginDialog(project, painPointPresentation, mPainPointDomain);
+        pluginDialog.setSize(300, 150);
+//        Platform.setImplicitExit(false);
+//        Platform.runLater(() -> {
+//            Group root  =  new Group();
+//            Scene scene  =  new  Scene(root, Color.ALICEBLUE);
+//            Text text  =  new Text();
+//
+//            text.setX(40);
+//            text.setY(100);
+//            text.setFont(new Font(25));
+//            text.setText("Welcome JavaFX!");
+//
+//            root.getChildren().add(text);
+//
+//            fxPanel.setScene(scene);
+//        });
+//
+//        component.getParent().add(fxPanel);
 
+
+//        Platform.setImplicitExit(false);
+//        Platform.runLater(() -> {
+//            Stage dialog = new Stage();
+//            dialog.initStyle(StageStyle.UTILITY);
+//            Scene scene = new Scene(new Group(new Text(25, 25, "Hello World!")));
+//            dialog.setScene(scene);
+//            dialog.show();
+//        });
+
+//        JFXPanel jfxPanel = new JFXPanel();
+//        jfxPanel.setSize(120, 200);
+//        Platform.setImplicitExit(false);
+//
+//        Platform.setImplicitExit(false);
+//        Platform.runLater(() -> {
+//            Group root  =  new Group();
+//            Scene scene  =  new  Scene(root);
+//            CheckBox checkBox = new CheckBox();
+//            checkBox.setLayoutX(13);
+//            checkBox.setLayoutY(19);
+//            checkBox.setPrefHeight(101);
+//            checkBox.setPrefWidth(181);
+//            checkBox.setText("Report Pain Point");
+//
+//            TitledPane titledPane = new TitledPane();
+//            titledPane.setPrefSize(202.0,218.0);
+//            titledPane.setLayoutX(5);
+//            titledPane.setLayoutY(5);
+//            titledPane.setExpanded(true);
+//            titledPane.setMaxHeight(-1);
+//            titledPane.setMaxWidth(-1);
+//            titledPane.setMinWidth(-1);
+//            titledPane.setMinHeight(-1);
+//            titledPane.setText("Pain Points");
+//            titledPane.setContent(checkBox);
+//            root.getChildren().add(titledPane);
+//            jfxPanel.setScene(scene);
+//        });
     }
 
     private @Nullable

@@ -52,8 +52,9 @@ public class ProjectViewManager extends AbstractProjectComponent {
 
     private void createDialog(Project project, PainPointPresentation painPointPresentation) {
 
-        PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
-        pluginDialog.show();
+        PluginDialog pluginDialog = new PluginDialog(project, painPointPresentation, mPainPointDomain);
+//        PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
+//        pluginDialog.show();
     }
 
     public static ProjectViewManager getInstance(Project project) {

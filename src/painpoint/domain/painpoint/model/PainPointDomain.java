@@ -1,6 +1,5 @@
 package painpoint.domain.painpoint.model;
 
-import b.b.P;
 import com.intellij.ide.plugins.PluginManager;
 import groovy.lang.Singleton;
 
@@ -14,12 +13,12 @@ import java.util.Map;
 public class PainPointDomain {
 
     private static final String mTableName = "PainPoint";
-    private static final String FIELDS = "ID, CLASSID, THUMBSUP, THUMBSDOWN";
+    private static final String FIELDS = "ID, CLASSID, USERNAME, THUMBSDOWN";
     private Map<Integer, PainPoint> mPainPointMapCache = null;
 
 
     public PainPointDomain() {
-        deletePainPointTable(); //TODO: don't do this dummy.
+//        deletePainPointTable(); //TODO: don't do this dummy.
         createPainPointTable();
     }
 
@@ -70,7 +69,7 @@ public class PainPointDomain {
             Connection conn = getConnection();
             if (conn != null) {
                 Statement stat = conn.createStatement();
-                stat.execute("CREATE TABLE " + mTableName + " (id INT PRIMARY KEY AUTO_INCREMENT, classid INT, thumbsup BOOLEAN, thumbsdown BOOLEAN)");
+                stat.execute("CREATE TABLE " + mTableName + " (id INT PRIMARY KEY AUTO_INCREMENT, classid INT, username VARCHAR(256), thumbsdown BOOLEAN)");
                 stat.close();
                 conn.close();
             }
@@ -166,7 +165,7 @@ public class PainPointDomain {
     public List<PainPoint> getPainPointsForClassId(boolean queryForData, Integer classId) {
 
         List<PainPoint> painPointList = new ArrayList<>();
-        if(queryForData && mPainPointMapCache != null) {
+        if(!queryForData && mPainPointMapCache != null) {
             painPointList = getPainPointsCacheForClassId(classId);
         }
         else {

@@ -51,7 +51,7 @@ public class PainPointPresentation {
     }
 
     public boolean isPinned() {
-        return false;
+        return (mPainPoints != null && mPainPoints.size()>0);
     }
 
     public Integer getmClassId() {
