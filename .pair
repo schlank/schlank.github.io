@@ -1,0 +1,11 @@
+# .pairs - configuration for 'git pair'
+pairs:
+  # <initials>: <Firstname> <Lastname>[; <email-id>]
+  pl: Phil Leder: pleder
+  wk: Will Kamp; wkamp
+  jk: John Kennedy; jkennedy
+email:
+  prefix: pair
+  domain: philipleder.com
+  no_solo_prefix: true
+global: false  # Set to true for git-pair to change git configuration for all your projects
