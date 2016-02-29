@@ -35,14 +35,6 @@ public class VoodooCheckbox extends JCheckBox {
 
 //        (String selectedLabel, String unSelectedLabel,
 //                ImageIcon selectedIcon, ImageIcon unSelectedIcon)
-
-        FantasyCheckbox fantasyCheckbox = new FantasyCheckbox(
-                "Pain Point reported.",
-                "Report Pain Point",
-                new ImageIcon("voodoo-doll-sad-pinned.png"),
-                new ImageIcon("voodoo-doll-happy.png")
-        );
-        add(fantasyCheckbox);
-    }
+     }
 
 }

@@ -31,7 +31,6 @@ import java.util.List;
  Balloon.Position.atRight);
  */
 public class EditorMenuItem extends AnAction {
-    private final Logger LOG = Logger.getInstance(getClass());
 
     private PainPointDomain mPainPointDomain;
 
