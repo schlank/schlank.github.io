@@ -40,21 +40,8 @@ public class ProjectViewManager extends AbstractProjectComponent {
         mPainPointDomain = new PainPointDomain();
     }
 
-    public Integer getClassId(VirtualFile virtualFile, String projectName) {
-        String className = virtualFile.getName();
-        String filePath = virtualFile.getPath();
-        return DataModelUtil.classFileId(className, filePath, projectName);
-    }
-
-    public List<PainPoint> getPainPoints(Integer classId, String projectName) {
+    public List<PainPoint> getPainPoints(Integer classId) {
         return mPainPointDomain.getPainPointsForClassId(true, classId);
-    }
-
-    private void createDialog(Project project, PainPointPresentation painPointPresentation) {
-
-        PluginDialog pluginDialog = new PluginDialog(project, painPointPresentation, mPainPointDomain);
-//        PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project, false, true);
-//        pluginDialog.show();
     }
 
     public static ProjectViewManager getInstance(Project project) {
@@ -86,10 +73,6 @@ public class ProjectViewManager extends AbstractProjectComponent {
         mConnection = myProject.getMessageBus().connect();
         mConnection.subscribe(DecorationToggleNotifier.TOGGLE_TOPIC, this::refreshProjectView);
         mConnection.subscribe(VcsConfigurationChangeListener.BRANCHES_CHANGED, (project, vcsRoot) -> refreshProjectView(project));
-    }
-
-    public PainPoint getPainPointForId(int painPointId) {
-        return mPainPointDomain.getPainPointForId(true, painPointId);
     }
 
     public List<PainPoint> getPainPointsForClassId(int classId) {

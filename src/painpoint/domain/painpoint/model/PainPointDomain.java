@@ -16,7 +16,6 @@ public class PainPointDomain {
     private static final String FIELDS = "ID, CLASSID, USERNAME, THUMBSDOWN";
     private Map<Integer, PainPoint> mPainPointMapCache = null;
 
-
     public PainPointDomain() {
 //        deletePainPointTable(); //TODO: don't do this dummy.
         createPainPointTable();
@@ -36,10 +35,9 @@ public class PainPointDomain {
         return null;
     }
 
-    private boolean hasPointPointForUser(Integer classId, String userName) {
+    private boolean hasPainPointForUser(Integer classId, String userName) {
 
         List<PainPoint> painPointsForClass = getPainPointsCacheForClassId(classId);
-
         for(PainPoint painPoint : painPointsForClass) {
             if(painPoint.getUserName().equalsIgnoreCase(userName)) {
                 return true;
@@ -49,6 +47,7 @@ public class PainPointDomain {
         return false;
     }
 
+    // For testing purposes, early on.  Not "intended" for future use.
     private void deletePainPointTable() {
         try {
             Connection conn = getConnection();
@@ -69,7 +68,7 @@ public class PainPointDomain {
             Connection conn = getConnection();
             if (conn != null) {
                 Statement stat = conn.createStatement();
-                stat.execute("CREATE TABLE " + mTableName + " (id INT PRIMARY KEY AUTO_INCREMENT, classid INT, username VARCHAR(256), thumbsdown BOOLEAN)");
+                stat.execute("CREATE TABLE " + mTableName + " (id INT PRIMARY KEY AUTO_INCREMENT, classid INT UNIQUE, username VARCHAR(256), thumbsdown BOOLEAN)");
                 stat.close();
                 conn.close();
             }
@@ -124,7 +123,6 @@ public class PainPointDomain {
         }
         else {
             if(queryForData) {
-                Map<Integer, PainPoint> painPointMap = null;
                 Connection conn = getConnection();
                 if (conn != null) {
                     try {
@@ -153,7 +151,7 @@ public class PainPointDomain {
                 System.out.println(pair.getKey() + " = " + pair.getValue());
 
                 PainPoint painPoint = (PainPoint) pair.getValue();
-                if (painPoint.getClassId() == classId) {
+                if (painPoint.getClassId().equals(classId)) {
                     painPointList.add(painPoint);
                 }
                 it.remove(); // avoids a ConcurrentModificationException
@@ -190,19 +188,13 @@ public class PainPointDomain {
         return painPointList;
     }
 
-    private void updatePointPointForClassId(Integer classId) {
-
-    }
-
     private void updatePainPoint(PainPoint painPoint) {
         try {
             Connection conn = getConnection();
             if (conn != null) {
                 Statement stat = conn.createStatement();
-                String insertTableSQL = "UPDATE " + mTableName +
-                        "("+FIELDS+") " +
-                        "VALUES(" + painPoint.toSQLValues() + ")";
-                stat.execute(insertTableSQL);
+                String updateTableSQL = "UPDATE " + mTableName + " SET THUMBSDOWN = " + painPoint.isThumbsDown() + " WHERE CLASSID = " +painPoint.getClassId();
+                stat.execute(updateTableSQL);
                 stat.close();
                 conn.close();
             }
@@ -215,7 +207,7 @@ public class PainPointDomain {
 
     public void addOrUpdateForClass(Integer classId, String userName, boolean painValue) {
         PainPoint painPoint = new PainPoint(null, classId, userName, painValue);
-        if(hasPointPointForUser(classId, userName)) {
+        if(hasPainPointForUser(classId, userName)) {
             updatePainPoint(painPoint);
         }
         else {

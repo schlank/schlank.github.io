@@ -11,18 +11,30 @@ public class PainPointPresentation {
 
     private List<PainPoint> mPainPoints;
     private Integer mClassId;
+    private String mClassFileName;
     private String mGitPairName;
 
-    public PainPointPresentation(Integer classId, String gitPairName, List<PainPoint> painPoints) {
+    public PainPointPresentation(Integer classId, String gitPairName, List<PainPoint> painPoints, String classFileName) {
         mPainPoints = painPoints;
         mClassId = classId;
+        mClassFileName = classFileName;
         mGitPairName = gitPairName;
+    }
+
+    private int getThumbsDownCount() {
+        int count = 0;
+        for(PainPoint painPoint :  mPainPoints) {
+            if(painPoint.isThumbsDown()) {
+                count++;
+            }
+        }
+        return count;
     }
     public ClassStatus getClassStatus() {
 
         ClassStatus classStatus = ClassStatus.UNRATED;
         if(mPainPoints != null) {
-            int painPointCount = mPainPoints.size();
+            int painPointCount = getThumbsDownCount();
             if(painPointCount == 1) {
                 classStatus = ClassStatus.OK;
             }
@@ -36,10 +48,6 @@ public class PainPointPresentation {
         return classStatus;
     }
 
-    public List<PainPoint> getPainPointPresentations() {
-        return mPainPoints;
-    }
-
     public List<PainPoint> getThumbsDownList() {
         List<PainPoint> thumbsDown = new ArrayList<>();
         for(PainPoint painPoint: mPainPoints) {
@@ -51,14 +59,18 @@ public class PainPointPresentation {
     }
 
     public boolean isPinned() {
-        return (mPainPoints != null && mPainPoints.size()>0);
+        return (mPainPoints != null && getThumbsDownList().size()>0);
     }
 
-    public Integer getmClassId() {
+    public Integer getClassId() {
         return mClassId;
     }
 
     public String getGitPairString() {
         return mGitPairName;
+    }
+
+    public String getClassFileName() {
+        return mClassFileName;
     }
 }

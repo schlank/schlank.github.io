@@ -16,7 +16,7 @@ public class PainPoint {
     }
 
     public String toSQLValues() {
-        return getDatabaseUid() +",'"+getClassId()+"', '"+getUserName()+"', '"+isThumbsDown()+"'";
+        return getClassId()+"', '"+getUserName()+"', '"+isThumbsDown()+"'";
     }
 
     public Integer getDatabaseUid() {

@@ -41,7 +41,7 @@ public class ClassCommentaryPanel extends JPanel {
 
     private void updateSelectionData(boolean isCheckboxSelected) {
         if (mPainPointPresentation.isPinned() != isCheckboxSelected) {
-            Integer painPointId = mPainPointPresentation.getmClassId();
+            Integer painPointId = mPainPointPresentation.getClassId();
             String gitPairUser = mPainPointPresentation.getGitPairString();
             mPainPointDomain.addOrUpdateForClass(painPointId, gitPairUser, isCheckboxSelected);
         }

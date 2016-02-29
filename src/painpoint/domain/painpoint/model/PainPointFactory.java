@@ -1,7 +1,5 @@
 package painpoint.domain.painpoint.model;
 
-import com.intellij.ide.plugins.PluginManager;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,24 +19,19 @@ public class PainPointFactory {
 
     public static Map<Integer, PainPoint> createPainPointMap(ResultSet resultSet) throws SQLException {
         Map<Integer, PainPoint> painPointHashMap = new HashMap<>();
-        int count = 1;
         while (resultSet.next()) {
             PainPoint painPoint = PainPointFactory.createPainPoint(resultSet);
             Integer id = resultSet.getInt("id");
             painPointHashMap.put(id, painPoint);
-            count++;
         }
         return painPointHashMap;
     }
 
     public static List<PainPoint> createPainPoints(ResultSet resultSet) throws SQLException {
         List<PainPoint> painPointHashMap = new ArrayList<>();
-        int count = 1;
         while (resultSet.next()) {
             PainPoint painPoint = PainPointFactory.createPainPoint(resultSet);
-            Integer id = resultSet.getInt("id");
             painPointHashMap.add(painPoint);
-            count++;
         }
         return painPointHashMap;
     }

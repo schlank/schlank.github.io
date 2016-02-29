@@ -1,51 +1,29 @@
 package painpoint.dialog;
 
-import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.DialogWrapper;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TitledPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import org.jetbrains.annotations.Nullable;
+import painpoint.component.ProjectViewManager;
 import painpoint.decoration.PainPointPresentation;
 import painpoint.domain.painpoint.model.PainPointDomain;
-import painpoint.domain.painpoint.model.PainPointFactory;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.util.ResourceBundle;
+import java.sql.SQLException;
 
 public class PluginDialog extends JDialog {
 
-    private CheckBox mCheckBox;
-
-    private PainPointFXPanel mJfxPanel;
-
-    @Nullable
-    protected JComponent createCenterPanel() {
-        return mJfxPanel;
-    }
-
-    public PluginDialog(Project project, PainPointPresentation painPointPresentation, PainPointDomain painPointDomain) {
-
+    public PluginDialog(PainPointPresentation painPointPresentation, PainPointDomain painPointDomain, Project project) {
         super(new JFrame(), "Plugin Dialog");
-        mJfxPanel = new PainPointFXPanel();
+
+        try {
+            painPointDomain.getPainPointMap(true);
+        }
+        catch (SQLException sEx) {
+            System.out.println("SQLException.." + sEx.getMessage());
+        }
+        ProjectViewManager projectViewManager = ProjectViewManager.getInstance(project);
         setSize(100,100);
 
         System.out.println("creating the window..");
@@ -69,7 +47,16 @@ public class PluginDialog extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 JCheckBox jCheckBox1 = (JCheckBox)e.getSource();
                 boolean isSelected = jCheckBox1.isSelected();
-                painPointDomain.addOrUpdateForClass(painPointPresentation.getmClassId(), painPointPresentation.getGitPairString(), isSelected);
+                Integer classId = painPointPresentation.getClassId();
+                String gitPair = painPointPresentation.getGitPairString();
+                painPointDomain.addOrUpdateForClass(classId, gitPair, isSelected);
+                try {
+                    painPointDomain.getPainPointMap(true);
+                }
+                catch (SQLException sqlEx) {
+                    System.out.println("SQLException: " + sqlEx.getMessage());
+                }
+                projectViewManager.refreshProjectView(project);
             }
         });
         cbPane.add(jCheckBox);
@@ -112,38 +99,5 @@ public class PluginDialog extends JDialog {
         inputMap.put(stroke, "ESCAPE");
         rootPane.getActionMap().put("ESCAPE", action);
         return rootPane;
-    }
-
-
-    private class PainPointFXPanel extends JFXPanel {
-        public PainPointFXPanel() {
-            super();
-
-            Platform.setImplicitExit(false);
-            Platform.runLater(() -> {
-                Group root  =  new Group();
-                Scene scene  =  new  Scene(root);
-                CheckBox checkBox = new CheckBox();
-                checkBox.setLayoutX(13);
-                checkBox.setLayoutY(19);
-                checkBox.setPrefHeight(101);
-                checkBox.setPrefWidth(181);
-                checkBox.setText("Report Pain Point");
-
-                TitledPane titledPane = new TitledPane();
-                titledPane.setPrefSize(202.0,218.0);
-                titledPane.setLayoutX(5);
-                titledPane.setLayoutY(5);
-                titledPane.setExpanded(true);
-                titledPane.setMaxHeight(-1);
-                titledPane.setMaxWidth(-1);
-                titledPane.setMinWidth(-1);
-                titledPane.setMinHeight(-1);
-                titledPane.setText("Pain Points");
-                titledPane.setContent(checkBox);
-                root.getChildren().add(titledPane);
-                setScene(scene);
-            });
-        }
     }
 }

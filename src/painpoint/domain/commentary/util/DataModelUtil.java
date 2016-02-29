@@ -1,15 +1,19 @@
 package painpoint.domain.commentary.util;
 
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
+import org.apache.commons.lang.StringUtils;
+
 public class DataModelUtil {
 
     /**
      * Get the commentary ID from className filePath and Project name.
      * @param className Class filename.
      * @param filePath Path to the class file or the full path.
-     * @param projectName Name of the Intellij project that is open.
+     * @param projectRootDir Name of the Intellij project base or module folder that is open.
      * @return A unique Id for the class to be used to identify the commentary entry in our DB.
      */
-    public static Integer classFileId(String className, String filePath, String projectName) {
+    public static Integer classFileId(String className, String filePath, String projectRootDir, String userName) {
         Integer classId = null;
         if(!filePath.contains(className)) {
             String trailingSlash = filePath.substring(filePath.length()-1);
@@ -18,11 +22,30 @@ public class DataModelUtil {
             }
             filePath = filePath + className;
         }
-        if(projectName != null && !projectName.isEmpty()) {
-            int splitIndex = filePath.indexOf("/"+projectName);
+        if(projectRootDir != null && !projectRootDir.isEmpty()) {
+            int splitIndex = filePath.indexOf("/"+projectRootDir);
             filePath = filePath.substring(splitIndex);
-            classId = filePath.hashCode();
+            classId = (filePath + userName).hashCode();
         }
         return classId;
+    }
+
+    // TODO this function needs tests.  for sure.
+    public static String getProjectRootDir(Project project, String filePath) {
+
+        String projectRootPath = project.getBaseDir().getPath();
+        // This is because we may have a module outside the project path, so we remove it.
+        String[] folders = projectRootPath.split("/");
+        if("/".contains(projectRootPath)) {
+            folders = projectRootPath.split("/");
+        }
+        else if(projectRootPath.contains("\\")) {
+            folders = StringUtils.split(projectRootPath, "\\");
+        }
+        projectRootPath = projectRootPath.replace(folders[folders.length-1], "");
+        if(projectRootPath != null) {
+            return filePath.replace(projectRootPath, "");
+        }
+        return null;
     }
 }
