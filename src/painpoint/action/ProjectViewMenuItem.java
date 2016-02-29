@@ -14,7 +14,6 @@ import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.Nullable;
 
 public class ProjectViewMenuItem extends AnAction {
-    private final Logger LOG = Logger.getInstance(getClass());
 
     @Override
     public void actionPerformed(AnActionEvent actionEvent) {

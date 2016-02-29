@@ -1,6 +1,6 @@
 package painpoint.decoration;
 
-import painpoint.domain.commentary.util.DataModelUtil;
+import painpoint.domain.util.DataModelUtil;
 import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;

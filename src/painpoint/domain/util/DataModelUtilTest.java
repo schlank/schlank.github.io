@@ -1,4 +1,4 @@
-package painpoint.domain.commentary.util;
+package painpoint.domain.util;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

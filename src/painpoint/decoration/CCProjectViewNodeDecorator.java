@@ -4,6 +4,10 @@
 package painpoint.decoration;
 
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.*;
+import com.intellij.psi.javadoc.PsiDocComment;
+import com.intellij.psi.javadoc.PsiDocTag;
 import painpoint.dialog.PainPointPresentationFactory;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.projectView.PresentationData;

@@ -11,12 +11,14 @@ public class  PainPointPresentation {
     private Integer mClassId;
     private String mClassFileName;
     private String mGitPairName;
+    private int mTodoCount;
 
-    public PainPointPresentation(Integer classId, String gitPairName, List<PainPoint> painPoints, String classFileName) {
+    public PainPointPresentation(Integer classId, String gitPairName, List<PainPoint> painPoints, String classFileName, int todoCount) {
         mPainPoints = painPoints;
         mClassId = classId;
         mClassFileName = classFileName;
         mGitPairName = gitPairName;
+        mTodoCount = todoCount;
     }
 
     private int getThumbsDownCount() {
@@ -59,7 +61,7 @@ public class  PainPointPresentation {
         return thumbsDown;
     }
 
-    public boolean isPinned() {
+    public boolean hasPainPoints() {
         return (mPainPoints != null && getThumbsDownList().size()>0);
     }
 
@@ -73,5 +75,13 @@ public class  PainPointPresentation {
 
     public String getClassFileName() {
         return mClassFileName;
+    }
+
+    public int getTodoCount() {
+        return mTodoCount;
+    }
+
+    public boolean hasTodos() {
+        return (mTodoCount>0);
     }
 }

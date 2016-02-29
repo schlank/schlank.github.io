@@ -1,26 +1,18 @@
 package painpoint.component;
 
-import com.intellij.openapi.actionSystem.CommonDataKeys;
-import com.intellij.openapi.actionSystem.DataKeys;
-import com.intellij.openapi.vfs.VirtualFile;
 import painpoint.decoration.DecorationToggleNotifier;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.projectView.ProjectView;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.AbstractProjectComponent;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vcs.changes.committed.VcsConfigurationChangeListener;
 import com.intellij.util.messages.MessageBusConnection;
-import painpoint.decoration.PainPointPresentation;
-import painpoint.dialog.PluginDialog;
-import painpoint.domain.commentary.util.DataModelUtil;
 import painpoint.domain.painpoint.model.PainPoint;
-import painpoint.domain.painpoint.model.PainPointDomain;
+import painpoint.domain.painpoint.PainPointDomain;
 import painpoint.git.GitRunner;
 import painpoint.pairing.PairConfig;
 import painpoint.pairing.PairController;
-import painpoint.pairing.TeamMember;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -77,15 +69,6 @@ public class ProjectViewManager extends AbstractProjectComponent {
 
     public List<PainPoint> getPainPointsForClassId(int classId) {
         return mPainPointDomain.getPainPointsForClassId(true, classId);
-    }
-
-    public String getPairString() {
-        if(mPairController != null) {
-            return mPairController.getPairDisplayName();
-        }
-        else {
-            return "Unknown";
-        }
     }
 
     /**

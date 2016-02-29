@@ -1,7 +1,9 @@
-package painpoint.domain.painpoint.model;
+package painpoint.domain.painpoint;
 
 import com.intellij.ide.plugins.PluginManager;
 import groovy.lang.Singleton;
+import painpoint.domain.painpoint.model.PainPoint;
+import painpoint.domain.painpoint.model.PainPointFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -74,7 +76,7 @@ public class PainPointDomain {
             }
         }
         catch (SQLException ex) {
-            PluginManager.getLogger().warn("SQLException " + ex.getMessage());
+            PluginManager.getLogger().debug("SQLException " + ex.getMessage());
         }
     }
 
@@ -193,7 +195,7 @@ public class PainPointDomain {
             Connection conn = getConnection();
             if (conn != null) {
                 Statement stat = conn.createStatement();
-                String updateTableSQL = "UPDATE " + mTableName + " SET THUMBSDOWN = " + painPoint.isThumbsDown() + " WHERE CLASSID = " +painPoint.getClassId();
+                String updateTableSQL = "UPDATE " + mTableName + " SET thumbsdown = " + painPoint.isThumbsDown() + " WHERE classid = " +painPoint.getClassId();
                 stat.execute(updateTableSQL);
                 stat.close();
                 conn.close();

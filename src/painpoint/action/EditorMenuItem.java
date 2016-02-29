@@ -1,22 +1,20 @@
 package painpoint.action;
 
-import painpoint.component.ProjectViewManager;
+import com.intellij.psi.PsiClass;
+import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiJavaFile;
 import painpoint.decoration.PainPointPresentation;
 import painpoint.dialog.PainPointPresentationFactory;
 import painpoint.dialog.PluginDialog;
-import painpoint.domain.painpoint.model.PainPoint;
-import painpoint.domain.painpoint.model.PainPointDomain;
+import painpoint.domain.painpoint.PainPointDomain;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.actionSystem.*;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 /**
  * Notes for phil:
@@ -48,7 +46,9 @@ public class EditorMenuItem extends AnAction {
         // get the currently chosen file.
         VirtualFile virtualFile = DataKeys.VIRTUAL_FILE.getData(actionEvent.getDataContext());
 
-        PainPointPresentation painPointPresentation = PainPointPresentationFactory.creatPresentation(project, virtualFile);
+        PsiFile psiFile = actionEvent.getData(LangDataKeys.PSI_FILE);
+        PsiJavaFile psiJavaFile = (PsiJavaFile)psiFile;
+        PainPointPresentation painPointPresentation = PainPointPresentationFactory.creatPresentation(project, virtualFile, psiJavaFile);
 
         PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project);
         pluginDialog.setSize(300, 150);

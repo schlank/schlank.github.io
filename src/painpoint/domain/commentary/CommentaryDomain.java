@@ -1,5 +1,11 @@
 package painpoint.domain.commentary;
 
+/**
+ * TODO NOTE.  This commentary object is not "in use"  I was not ready to take it out
+ * TODO        of VC yet.  If you are reading this.  Then you can remove the
+ * TODO        whole painpoint.domain.commentary. DELETE
+ */
+
 import painpoint.domain.commentary.model.Commentary;
 import painpoint.domain.commentary.model.CommentaryFactory;
 import com.intellij.ide.plugins.PluginManager;
@@ -68,7 +74,7 @@ public class CommentaryDomain {
     public Map<Integer, Commentary> getCommentaryMap(boolean queryForData) throws SQLException {
 
         if(queryForData) {
-            Map<Integer, Commentary> commentaryMap = null;
+            Map<Integer, Commentary> commentaryMap;
             Connection conn = getConnection();
             if (conn != null) {
                 Statement stat = conn.createStatement();

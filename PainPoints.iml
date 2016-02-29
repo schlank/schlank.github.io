@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/painpoint/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/out" />
+      <excludeFolder url="file://$MODULE_DIR$/testData" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" name="h2-1.4.191" level="project" />

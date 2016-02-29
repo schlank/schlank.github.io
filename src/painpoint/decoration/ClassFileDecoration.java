@@ -3,6 +3,7 @@
  */
 package painpoint.decoration;
 
+import com.intellij.ui.JBColor;
 import painpoint.domain.commentary.model.ClassStatus;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
@@ -33,7 +34,8 @@ public class ClassFileDecoration {
     }
 
     public void decorate(ProjectViewNode node, PresentationData data) {
-        addStatusText(data, getName(node));
+        addTodoStatusText(data, getName(node));
+        addPainPointStatusText(data, getName(node));
     }
 
     private SimpleTextAttributes attributesByClassStatus(ClassStatus status) {
@@ -41,21 +43,65 @@ public class ClassFileDecoration {
                 status.getColor());
     }
 
-    protected void addStatusText(PresentationData data, String text) {
-        ClassStatus status = mPainPointsPresentation.getClassStatus();
-        SimpleTextAttributes textAttributes = attributesByClassStatus(status);
-        int painPointCount = mPainPointsPresentation.getPinnedCount();
-        if(painPointCount > 0) {
-            String statusLabel = " - " + mPainPointsPresentation.getPinnedCount();
+    protected void addPainPointStatusText(PresentationData data, String text) {
+        boolean hasTodos = mPainPointsPresentation.hasTodos();
+
+        if(hasTodos) {
+
+            int todoCount = mPainPointsPresentation.getTodoCount();
+
+            JBColor jbColor = JBColor.BLUE;
+
+            ClassStatus status = mPainPointsPresentation.getClassStatus();
+            SimpleTextAttributes textAttributes = new SimpleTextAttributes(SimpleTextAttributes.STYLE_SMALLER, jbColor);
+            String statusLabel = " - " + todoCount;
             String finishText = text + " " + statusLabel;
+
             boolean add = true;
+            boolean addOriginal = true;
             for (ColoredFragment existing : data.getColoredText()) {
                 if (existing.getText().equals(finishText)) {
                     add = false;
                 }
+                if (existing.getText().contains(text)) {
+                    addOriginal = false;
+                }
             }
             if (add) {
-                data.addText(text, SimpleTextAttributes.REGULAR_ATTRIBUTES);
+
+                if(addOriginal) {
+                    data.addText(text, SimpleTextAttributes.REGULAR_ATTRIBUTES);
+                }
+                data.addText(" " + statusLabel, textAttributes);
+            }
+        }
+    }
+
+    protected void addTodoStatusText(PresentationData data, String text) {
+
+        boolean hasPainPoints = mPainPointsPresentation.hasPainPoints();
+        if(hasPainPoints) {
+
+            ClassStatus status = mPainPointsPresentation.getClassStatus();
+            SimpleTextAttributes textAttributes = attributesByClassStatus(status);
+
+            String statusLabel = " - " + mPainPointsPresentation.getPinnedCount();
+            String finishText = text + " " + statusLabel;
+            boolean add = true;
+            boolean addOriginal = true;
+
+            for (ColoredFragment existing : data.getColoredText()) {
+                if (existing.getText().equals(finishText)) {
+                    add = false;
+                }
+                if (existing.getText().contains(text)) {
+                    addOriginal = false;
+                }
+            }
+            if (add) {
+                if(addOriginal) {
+                    data.addText(text, SimpleTextAttributes.REGULAR_ATTRIBUTES);
+                }
                 data.addText(" " + statusLabel, textAttributes);
             }
         }

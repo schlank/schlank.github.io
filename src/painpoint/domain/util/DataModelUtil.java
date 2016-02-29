@@ -1,7 +1,6 @@
-package painpoint.domain.commentary.util;
+package painpoint.domain.util;
 
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
 import org.apache.commons.lang.StringUtils;
 
 public class DataModelUtil {

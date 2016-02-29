@@ -88,7 +88,7 @@ public class PairController {
         if (currentPair != null && currentPair.size() > 0) {
             return generatePairName(currentPair);
         } else {
-            return "git pair";
+            return "";
         }
     }
 

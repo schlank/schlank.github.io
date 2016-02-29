@@ -2,10 +2,10 @@ package painpoint.dialog;
 
 import com.intellij.openapi.project.Project;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import painpoint.component.ProjectViewManager;
 import painpoint.decoration.PainPointPresentation;
-import painpoint.domain.painpoint.model.PainPointDomain;
+import painpoint.domain.painpoint.PainPointDomain;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
@@ -38,7 +38,7 @@ public class PluginDialog extends JDialog {
 
         JPanel cbPane = new JPanel();
         JCheckBox jCheckBox = new JCheckBox();
-        jCheckBox.setSelected(painPointPresentation.isPinned());
+        jCheckBox.setSelected(painPointPresentation.hasPainPoints());
         jCheckBox.setText("Report Pain Point");
         jCheckBox.addActionListener(e -> {
             JCheckBox jCheckBox1 = (JCheckBox)e.getSource();
