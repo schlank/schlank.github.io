@@ -5,7 +5,7 @@ import com.intellij.openapi.util.TextRange;
 /**
  * Model to hold detected grammar errors.
  */
-public class GrammarError {
+public class FiveMatches {
     private int indexStart;
     private int indexEnd;
     private Type type;
@@ -23,7 +23,7 @@ public class GrammarError {
      * @param indexEnd   string index where error ends.
      * @param type       GrammarError.Type of the error.
      */
-    public GrammarError(int indexStart, int indexEnd, Type type) {
+    public FiveMatches(int indexStart, int indexEnd, Type type) {
         this.indexStart = indexStart;
         this.indexEnd = indexEnd;
         this.type = type;
@@ -48,11 +48,7 @@ public class GrammarError {
             default:
                 return "";
         }
-        // TODO
-    }
-
-    public String methodWithTODOInTheName() {
-        return "Method has TODO in it, and in here!!!";
+        // TODO A second todo wow.  another!! TODO
     }
 
 // todo lower case
@@ -63,5 +59,5 @@ public class GrammarError {
      */
     public TextRange rangeOfError() {
         return new TextRange(indexStart, indexEnd);
-    }
+  }
 }

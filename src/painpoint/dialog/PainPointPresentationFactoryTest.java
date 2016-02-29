@@ -16,19 +16,41 @@ public class PainPointPresentationFactoryTest extends LightCodeInsightFixtureTes
         return "testData";
     }
 
-
-    //TODO Make this test pass by parsing through PSIElements
-    // Right now we just do a simple string match count.
-    // It returns extra counts when the Todos are in a...
-    // 1. Function name
-    // 2. String literal
-    // The test is good.  Fix the code in PainPointPresentationFactory.getTodoCount(PsiFile psiFile);
-
-    public void testGetTodoCount() throws Exception {
+    public void testGetTodoCount_FiveTodos() throws Exception {
 
         // GIVEN a test java class with expectedTodoCount todos
         int expectedTodoCount = 5;
-        myFixture.configureByFiles("GrammarError.java");
+        myFixture.configureByFiles("FiveMatches.java");
+        PsiFile psiTestFile = myFixture.getFile();
+
+        // WHEN getTodoCount is calculated.
+        int todoCount = PainPointPresentationFactory.getTodoCount(psiTestFile);
+
+        // Then the result should be expectedTodoCount
+        assertEquals(expectedTodoCount, todoCount);
+    }
+
+    //TODO make test pass
+    public void testGetTodoCount_TodoInMethodName() throws Exception {
+
+        // GIVEN a test java class with expectedTodoCount todos
+        int expectedTodoCount = 0;
+        myFixture.configureByFiles("TodoInMethodName.java");
+        PsiFile psiTestFile = myFixture.getFile();
+
+        // WHEN getTodoCount is calculated.
+        int todoCount = PainPointPresentationFactory.getTodoCount(psiTestFile);
+
+        // Then the result should be expectedTodoCount
+        assertEquals(expectedTodoCount, todoCount);
+    }
+
+    //TODO make test pass
+    public void testGetTodoCount_TodoInStringLiteral() throws Exception {
+
+        // GIVEN a test java class with expectedTodoCount todos
+        int expectedTodoCount = 0;
+        myFixture.configureByFiles("TodoInStringLiteral.java");
         PsiFile psiTestFile = myFixture.getFile();
 
         // WHEN getTodoCount is calculated.

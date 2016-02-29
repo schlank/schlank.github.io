@@ -85,7 +85,16 @@ public class PainPointPresentationFactory {
     }
 
     public static int getTodoCount(PsiFile psiFile) {
-        return StringUtils.countMatches(psiFile.getText().toLowerCase(), "todo");
+
+        int todoCount = 0;
+        String[] lines = psiFile.getText().split("\n").clone();
+        for(String line : lines) {
+
+            if(StringUtils.containsIgnoreCase(line, "todo")) {
+                todoCount++;
+            }
+        }
+        return todoCount;
     }
 
     public static PainPointPresentation creatPresentation(Project project, VirtualFile virtualFile, PsiJavaFile psiJavaFile) {
