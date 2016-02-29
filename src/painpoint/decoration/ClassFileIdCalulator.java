@@ -24,19 +24,19 @@ public class ClassFileIdCalulator {
         return virtualFile.getName();
     }
 
-    public static Integer classIdForVirtualFile(Project project, VirtualFile virtualFile, String username) {
+    public static Integer classIdForVirtualFile(Project project, VirtualFile virtualFile) {
         if(project!=null) {
 
             String fullPath = virtualFile.getPath();
             String fileName = virtualFile.getName();
 
             String projectRootDir = DataModelUtil.getProjectRootDir(project, fullPath);
-            return DataModelUtil.classFileId(fileName, fullPath, projectRootDir, username);
+            return DataModelUtil.generateClassFileId(fileName, fullPath, projectRootDir);
         }
         return -1;
     }
 
-    public static Integer classIdForNode(ClassTreeNode classTreeNode, String username) {
+    public static Integer classIdForNode(ClassTreeNode classTreeNode) {
 
         Project project = classTreeNode.getProject();
         if(project!=null) {
@@ -50,7 +50,7 @@ public class ClassFileIdCalulator {
 
             String fileName = virtualFile.getName();
 
-            return DataModelUtil.classFileId(fileName, fullPath, projectName, username);
+            return DataModelUtil.generateClassFileId(fileName, fullPath, projectName);
         }
         return -1;
     }

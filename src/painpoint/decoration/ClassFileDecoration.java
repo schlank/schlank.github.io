@@ -4,7 +4,7 @@
 package painpoint.decoration;
 
 import com.intellij.ui.JBColor;
-import painpoint.domain.commentary.model.ClassStatus;
+import painpoint.domain.util.ClassStatus;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
 import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;

@@ -10,11 +10,12 @@ import java.util.Map;
 public class PainPointFactory {
 
     public static PainPoint createPainPoint(ResultSet resultSet) throws SQLException {
-        Integer id = resultSet.getInt("id");
+        Integer painPointId = resultSet.getInt("id");
         Integer classFileId = resultSet.getInt("classId");
-        Boolean thumbsDown = resultSet.getBoolean("thumbsdown");
         String username = resultSet.getString("username");
-        return new PainPoint(id, classFileId, username, thumbsDown);
+        Boolean thumbsDown = resultSet.getBoolean("thumbsdown");
+
+        return new PainPoint(painPointId, classFileId, username, thumbsDown);
     }
 
     public static Map<Integer, PainPoint> createPainPointMap(ResultSet resultSet) throws SQLException {

@@ -12,7 +12,7 @@ public class DataModelUtil {
      * @param projectRootDir Name of the Intellij project base or module folder that is open.
      * @return A unique Id for the class to be used to identify the commentary entry in our DB.
      */
-    public static Integer classFileId(String className, String filePath, String projectRootDir, String userName) {
+    public static Integer generateClassFileId(String className, String filePath, String projectRootDir) {
         Integer classId = null;
         if(!filePath.contains(className)) {
             String trailingSlash = filePath.substring(filePath.length()-1);
@@ -24,9 +24,18 @@ public class DataModelUtil {
         if(projectRootDir != null && !projectRootDir.isEmpty()) {
             int splitIndex = filePath.indexOf("/"+projectRootDir);
             filePath = filePath.substring(splitIndex);
-            classId = (filePath + userName).hashCode();
+            classId = (filePath).hashCode();
         }
         return classId;
+    }
+
+    /**
+     * generate the Painpoint ID from classId and username
+     * @return A unique Id for the class to be used to identify the commentary entry in our DB.
+     */
+    public static Integer generatePainPointId(Integer classId, String userName) {
+        String painPointId = classId + userName;
+        return painPointId.hashCode();
     }
 
     // TODO this function needs tests.  for sure.

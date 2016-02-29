@@ -17,6 +17,7 @@ import painpoint.component.ProjectViewManager;
 import painpoint.decoration.ClassFileIdCalulator;
 import painpoint.decoration.PainPointPresentation;
 import painpoint.domain.painpoint.model.PainPoint;
+import painpoint.domain.util.DataModelUtil;
 import painpoint.git.GitRunner;
 import painpoint.pairing.PairConfig;
 import painpoint.pairing.PairController;
@@ -38,14 +39,16 @@ public class PainPointPresentationFactory {
         String gitUsername = PainPointPresentationFactory.getGitUsername(project);
 
         //TODO these methods in ClassFileIdCalulator do too much.  Do more here or split the functions up.
-        Integer classId = ClassFileIdCalulator.classIdForNode(classTreeNode, gitUsername);
+        Integer classId = ClassFileIdCalulator.classIdForNode(classTreeNode);
+
+        Integer painPointId = DataModelUtil.generatePainPointId(classId, gitUsername);
         String classFileName = ClassFileIdCalulator.classFileNameForNode(classTreeNode);
         List<PainPoint> painPoints = projectViewManager.getPainPointsForClassId(classId);
 
         PsiClass psiClass = classTreeNode.getPsiClass();
         int todoCount = getTodoCount(psiClass);
 
-        return new PainPointPresentation(classId, gitUsername, painPoints, classFileName, todoCount);
+        return new PainPointPresentation(classId, painPointId, gitUsername, painPoints, classFileName, todoCount);
     }
 
     public static String getGitUsername(Project project) {
@@ -137,11 +140,13 @@ public class PainPointPresentationFactory {
         ProjectViewManager projectViewManager = ProjectViewManager.getInstance(project);
 
         String gitPairUser = PainPointPresentationFactory.getGitUsername(project);
-        Integer classId = ClassFileIdCalulator.classIdForVirtualFile(project, virtualFile, gitPairUser);
+        Integer classId = ClassFileIdCalulator.classIdForVirtualFile(project, virtualFile);
+        Integer painPointId = DataModelUtil.generatePainPointId(classId, gitPairUser);
+
         String classFileName = virtualFile.getName();
         List<PainPoint> painPoints = projectViewManager.getPainPointsForClassId(classId);
 
         int todoCount = getTodoCount(psiJavaFile);
-        return new PainPointPresentation(classId, gitPairUser, painPoints, classFileName, todoCount);
+        return new PainPointPresentation(classId, painPointId, gitPairUser, painPoints, classFileName, todoCount);
     }
 }

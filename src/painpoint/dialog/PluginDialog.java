@@ -38,7 +38,7 @@ public class PluginDialog extends JDialog {
 
         JPanel cbPane = new JPanel();
         JCheckBox jCheckBox = new JCheckBox();
-        jCheckBox.setSelected(painPointPresentation.hasPainPoints());
+        jCheckBox.setSelected(painPointPresentation.currentUserHasPainPoint());
         jCheckBox.setText("Report Pain Point");
         jCheckBox.addActionListener(e -> {
             JCheckBox jCheckBox1 = (JCheckBox)e.getSource();

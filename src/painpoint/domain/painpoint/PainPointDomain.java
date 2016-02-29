@@ -4,6 +4,7 @@ import com.intellij.ide.plugins.PluginManager;
 import groovy.lang.Singleton;
 import painpoint.domain.painpoint.model.PainPoint;
 import painpoint.domain.painpoint.model.PainPointFactory;
+import painpoint.domain.util.DataModelUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -70,7 +71,7 @@ public class PainPointDomain {
             Connection conn = getConnection();
             if (conn != null) {
                 Statement stat = conn.createStatement();
-                stat.execute("CREATE TABLE " + mTableName + " (id INT PRIMARY KEY AUTO_INCREMENT, classid INT UNIQUE, username VARCHAR(256), thumbsdown BOOLEAN)");
+                stat.execute("CREATE TABLE " + mTableName + " (id INTEGER PRIMARY KEY, classid INT NOT NULL, username VARCHAR(256), thumbsdown BOOLEAN)");
                 stat.close();
                 conn.close();
             }
@@ -131,7 +132,9 @@ public class PainPointDomain {
                         Statement stat = conn.createStatement();
                         ResultSet resultSet = stat.executeQuery("SELECT * FROM " + mTableName + " WHERE id = " + painPointId);
                         painPoint = PainPointFactory.createPainPoint(resultSet);
-                        mPainPointMapCache.put(painPointId, painPoint);
+                        addPainPoint(painPoint);
+                        PluginManager.getLogger().debug("getPainPointForId size: " + painPoint);
+
                         stat.close();
                         conn.close();
                     }
@@ -162,6 +165,14 @@ public class PainPointDomain {
         return painPointList;
     }
 
+    private void addPainPoint(PainPoint painPoint) {
+
+        if(painPoint != null) {
+            mPainPointMapCache.put(painPoint.getId(), painPoint);
+        }
+
+    }
+
     public List<PainPoint> getPainPointsForClassId(boolean queryForData, Integer classId) {
 
         List<PainPoint> painPointList = new ArrayList<>();
@@ -178,8 +189,11 @@ public class PainPointDomain {
                         ResultSet resultSet = stat.executeQuery("SELECT * FROM " + mTableName + " WHERE classid = " + classId);
                         painPointList = PainPointFactory.createPainPoints(resultSet);
 
+                        PluginManager.getLogger().debug("getPainPointsForClassId size: " + painPointList.size());
+
                         stat.close();
                         conn.close();
+
                     }
                     catch (SQLException ex) {
                         PluginManager.getLogger().warn("SQLException " + ex.getMessage());
@@ -195,7 +209,7 @@ public class PainPointDomain {
             Connection conn = getConnection();
             if (conn != null) {
                 Statement stat = conn.createStatement();
-                String updateTableSQL = "UPDATE " + mTableName + " SET thumbsdown = " + painPoint.isThumbsDown() + " WHERE classid = " +painPoint.getClassId();
+                String updateTableSQL = "UPDATE " + mTableName + " SET thumbsdown = " + painPoint.isThumbsDown() + " WHERE id = " +painPoint.getId();
                 stat.execute(updateTableSQL);
                 stat.close();
                 conn.close();
@@ -208,7 +222,8 @@ public class PainPointDomain {
 
 
     public void addOrUpdateForClass(Integer classId, String userName, boolean painValue) {
-        PainPoint painPoint = new PainPoint(null, classId, userName, painValue);
+        Integer painPointId = DataModelUtil.generatePainPointId(classId, userName);
+        PainPoint painPoint = new PainPoint(painPointId, classId, userName, painValue);
         if(hasPainPointForUser(classId, userName)) {
             updatePainPoint(painPoint);
         }

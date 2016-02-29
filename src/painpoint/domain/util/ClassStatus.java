@@ -1,4 +1,4 @@
-package painpoint.domain.commentary.model;
+package painpoint.domain.util;
 
 import com.intellij.ui.JBColor;
 

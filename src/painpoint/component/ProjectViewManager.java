@@ -32,10 +32,6 @@ public class ProjectViewManager extends AbstractProjectComponent {
         mPainPointDomain = new PainPointDomain();
     }
 
-    public List<PainPoint> getPainPoints(Integer classId) {
-        return mPainPointDomain.getPainPointsForClassId(true, classId);
-    }
-
     public static ProjectViewManager getInstance(Project project) {
         return project.getComponent(ProjectViewManager.class);
     }
