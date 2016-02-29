@@ -1,4 +1,4 @@
-package painpoint.component;
+package painpoint.decoration;
 
 import painpoint.domain.commentary.util.DataModelUtil;
 import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
@@ -21,20 +21,6 @@ public class ClassFileIdCalulator {
 
     public static String classFileNameForPsiFile(PsiFile psiFile) {
         VirtualFile virtualFile = psiFile.getVirtualFile();
-        return virtualFile.getName();
-    }
-
-    public static String getProjectName(Project project) {
-        VirtualFile virtualFile = project.getBaseDir();
-        if(virtualFile != null) {
-            return virtualFile.getName();
-        }
-        return project.getName();
-    }
-    public static String getBaseDir(VirtualFile virtualFile) {
-        if(virtualFile != null) {
-            return virtualFile.getPath();
-        }
         return virtualFile.getName();
     }
 

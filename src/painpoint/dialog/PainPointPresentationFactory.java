@@ -4,10 +4,9 @@ import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import painpoint.component.ProjectViewManager;
-import painpoint.component.ClassFileIdCalulator;
+import painpoint.decoration.ClassFileIdCalulator;
 import painpoint.decoration.PainPointPresentation;
 import painpoint.domain.painpoint.model.PainPoint;
-
 import java.util.List;
 
 public class PainPointPresentationFactory {

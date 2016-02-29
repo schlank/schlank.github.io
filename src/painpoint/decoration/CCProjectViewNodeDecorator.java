@@ -17,7 +17,6 @@ public class CCProjectViewNodeDecorator implements ProjectViewNodeDecorator {
 
     @Override
     public void decorate(ProjectViewNode viewNode, PresentationData presentationData) {
-
         if (viewNode != null && viewNode instanceof ClassTreeNode) {
 
             Project project = viewNode.getProject();

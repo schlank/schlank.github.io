@@ -8,7 +8,7 @@ public enum ClassStatus {
     GOOD("Good", JBColor.BLUE),
     OK("OK", JBColor.YELLOW),
     BAD("Bad", JBColor.ORANGE),
-    PAINPOINT("PAIN POINT", JBColor.RED);
+    PAINPOINT("Pain Points", JBColor.RED);
 
     private String mLabel;
     private JBColor mColor;

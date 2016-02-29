@@ -2,12 +2,10 @@ package painpoint.decoration;
 
 import painpoint.domain.commentary.model.ClassStatus;
 import painpoint.domain.painpoint.model.PainPoint;
-import painpoint.pairing.TeamMember;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class PainPointPresentation {
+public class  PainPointPresentation {
 
     private List<PainPoint> mPainPoints;
     private Integer mClassId;
@@ -30,22 +28,25 @@ public class PainPointPresentation {
         }
         return count;
     }
+
     public ClassStatus getClassStatus() {
 
         ClassStatus classStatus = ClassStatus.UNRATED;
         if(mPainPoints != null) {
             int painPointCount = getThumbsDownCount();
-            if(painPointCount == 1) {
-                classStatus = ClassStatus.OK;
-            }
-            else if(painPointCount==2) {
-                classStatus = ClassStatus.BAD;
-            }
-            else if(painPointCount>=3) {
+
+            if(painPointCount >= 1) {
                 classStatus = ClassStatus.PAINPOINT;
+            }
+            else {
+                classStatus = ClassStatus.UNRATED;
             }
         }
         return classStatus;
+    }
+
+    public int getPinnedCount() {
+        return getThumbsDownList().size();
     }
 
     public List<PainPoint> getThumbsDownList() {

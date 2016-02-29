@@ -4,7 +4,6 @@
 package painpoint.decoration;
 
 import painpoint.domain.commentary.model.ClassStatus;
-import painpoint.domain.commentary.model.Commentary;
 import com.intellij.ide.projectView.PresentationData;
 import com.intellij.ide.projectView.ProjectViewNode;
 import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
@@ -12,9 +11,6 @@ import com.intellij.ide.util.treeView.PresentableNodeDescriptor.ColoredFragment;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.util.PsiUtilBase;
 import com.intellij.ui.SimpleTextAttributes;
-import painpoint.domain.painpoint.model.PainPoint;
-
-import java.util.Map;
 
 public class ClassFileDecoration {
     private final PainPointPresentation mPainPointsPresentation;
@@ -48,17 +44,20 @@ public class ClassFileDecoration {
     protected void addStatusText(PresentationData data, String text) {
         ClassStatus status = mPainPointsPresentation.getClassStatus();
         SimpleTextAttributes textAttributes = attributesByClassStatus(status);
-        String statusLabel = status.getLabel();
-        String finishText = text + " " + statusLabel;
-        boolean add = true;
-        for (ColoredFragment existing : data.getColoredText()) {
-            if (existing.getText().equals(finishText)) {
-                add = false;
+        int painPointCount = mPainPointsPresentation.getPinnedCount();
+        if(painPointCount > 0) {
+            String statusLabel = " - " + mPainPointsPresentation.getPinnedCount();
+            String finishText = text + " " + statusLabel;
+            boolean add = true;
+            for (ColoredFragment existing : data.getColoredText()) {
+                if (existing.getText().equals(finishText)) {
+                    add = false;
+                }
             }
-        }
-        if (add) {
-            data.addText(text, SimpleTextAttributes.REGULAR_ATTRIBUTES);
-            data.addText(" " + statusLabel, textAttributes);
+            if (add) {
+                data.addText(text, SimpleTextAttributes.REGULAR_ATTRIBUTES);
+                data.addText(" " + statusLabel, textAttributes);
+            }
         }
     }
 }
