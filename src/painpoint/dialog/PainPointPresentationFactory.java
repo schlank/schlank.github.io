@@ -1,11 +1,18 @@
 package painpoint.dialog;
 
+import com.intellij.codeInsight.AnnotationUtil;
+import com.intellij.ide.caches.FileContent;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.*;
+import com.intellij.psi.impl.source.PsiJavaFileImpl;
+import com.intellij.psi.impl.source.tree.PsiCommentImpl;
+import com.intellij.util.indexing.DataIndexer;
+import gnu.trove.THashMap;
 import org.apache.commons.lang.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import painpoint.component.ProjectViewManager;
 import painpoint.decoration.ClassFileIdCalulator;
 import painpoint.decoration.PainPointPresentation;
@@ -84,7 +91,7 @@ public class PainPointPresentationFactory {
         return StringUtils.countMatches(psiClass.getText().toLowerCase(), "todo");
     }
 
-    public static int getTodoCount(PsiFile psiFile) {
+    public static int getTodoCountSimple(PsiFile psiFile) {
 
         int todoCount = 0;
         String[] lines = psiFile.getText().split("\n").clone();
@@ -95,6 +102,33 @@ public class PainPointPresentationFactory {
             }
         }
         return todoCount;
+    }
+
+    public static int getTodoCount(PsiFile psiFile) {
+
+        final List<String>todoList = new ArrayList<>();
+        psiFile.accept(new PsiRecursiveElementWalkingVisitor() {
+            @Override
+            public void visitElement(PsiElement element) {
+                super.visitElement(element);
+
+                if(element instanceof PsiCommentImpl) {
+
+                    String commentText = element.getText();
+                    if(StringUtils.containsIgnoreCase(commentText, "TODO")) {
+                        todoList.add(element.getText());
+                    }
+                }
+
+            }
+            private boolean checkForTodo(PsiElement psiElement) {
+
+
+                return false;
+            }
+
+                });
+        return todoList.size();
     }
 
     public static PainPointPresentation creatPresentation(Project project, VirtualFile virtualFile, PsiJavaFile psiJavaFile) {
