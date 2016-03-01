@@ -2,8 +2,9 @@
 set -e # exit with nonzero exit code if anything fails
 
 # clear and re-create the out directory
-cp  -rf out || exit 0;
+cp -rf out || exit 0;
 
+mkdir out
 
 # go to the out directory and create a *new* Git repo
 cd out
