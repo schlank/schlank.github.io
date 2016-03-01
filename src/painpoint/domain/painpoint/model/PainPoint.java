@@ -1,7 +1,7 @@
 package painpoint.domain.painpoint.model;
 
 public class PainPoint {
-    
+
     private Integer mClassId;
     private Integer mPainPointId;
     private String mUserName;
