@@ -26,6 +26,10 @@ ideaPath=$(find . -name 'idea-IU*' | head -n 1)
 cp -R ${ideaPath} ./idea-IU
 mkdir -p target/dependency/intellij-idea
 mv ${ideaPath} target/dependency/intellij-idea
-#mv ${ideaPath} ./idea-IU
-#mkdir -p target/dependency/intellij-idea
-#curl -L http://download.jetbrains.com/idea/ideaIC-14.1.2.tar.gz | tar xz --strip-components=1 -C target/dependency/intellij-idea
+
+echo ' Cleaning build directory.'
+echo '__________________________'
+echo ' Current Directory: '
+echo pwd
+
+rm ~/PainPoints/build/libs/PainPoints-*.jar
