@@ -2,8 +2,10 @@ out/
 
 ## Directory-based project format
 .idea/*
+.idea
 
-
+##*.iml
 ## .idea directory exceptions.  Do not ignore.
 ##Shared run configurations
 !.idea/runConfigurations/
+
