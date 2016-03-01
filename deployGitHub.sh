@@ -14,9 +14,9 @@ git config user.name "Fill up CI"
 git config user.email "phil@philipleder.com"
 
 # The first and only commit to this new Git repo contains all the
-# files present with the commit message "Deploy to GitHub Pages".
+# files present with the commit message "Deploy to GitHub Pages From Travis CI".
 git add .
-git commit -m "Deploy to GitHub Pages From Travis CIßß"
+git commit -m "Deploy to GitHub Pages From Travis CI"
 
 # Force push from the current repo's master branch to the remote
 # repo's gh-pages branch. (All previous history on the gh-pages branch
