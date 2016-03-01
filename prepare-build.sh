@@ -24,6 +24,7 @@ rm -rf ideaIU-${ideaVersion}.tar.gz
 # Move the versioned IDEA folder to a known location
 ideaPath=$(find . -name 'idea-IU*' | head -n 1)
 cp -R ${ideaPath} ./idea-IU
+mkdir -p target/dependency/intellij-idea
 mv ${ideaPath} target/dependency/intellij-idea
 #mv ${ideaPath} ./idea-IU
 #mkdir -p target/dependency/intellij-idea
