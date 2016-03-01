@@ -1,5 +1,6 @@
 out/
 build/
+gradle/
 
 ## Directory-based project format
 .idea/*
@@ -10,3 +11,4 @@ build/
 ##Shared run configurations
 !.idea/runConfigurations/
 
+gradle/

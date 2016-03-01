@@ -8,10 +8,12 @@ mkdir out
 
 # go to the out directory and create a *new* Git repo
 cd out
+cp $TRAVIS_BUILD_DIR/build/libs/PainPoints-1.0-SNAPSHOT.jar .
+
 git init
 
 # inside this git repo we'll pretend to be a new user
-git config user.name "Fill up CI"
+git config user.name "schlank"
 git config user.email "phil@philipleder.com"
 
 # The first and only commit to this new Git repo contains all the

@@ -7,14 +7,15 @@ after_success:
   - cd /tmp
   - git clone https://${GH_OAUTH_TOKEN}@github.com/${GH_USER_NAME}/${GH_PROJECT_NAME} PainPoints
   - cd PainPoints
-  - cp $TRAVIS_BUILD_DIR/build/libs/painPoints.jar .
+  - cp $TRAVIS_BUILD_DIR/build/libs/PainPoints-1.0-SNAPSHOT.jar .
   - git config --global user.name $GIT_AUTHOR_NAME
   - git config --global user.email $GIT_AUTHOR_EMAIL
-  - git add painPoints.jar
+  - git add PainPoints-1.0-SNAPSHOT.jar
   - git commit -m "[ci skip] Committed by Travis-CI"
   - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_USER_NAME}/${GH_PROJECT_NAME} 2>&1
   - echo $GH_USER_NAME
   - echo $GH_PROJECT_NAME
+  - ls $TRAVIS_BUILD_DIR/build/libs/
   - chmod +x deployGitHub.sh
   - ./deployGitHub.sh
 env:
