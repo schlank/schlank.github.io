@@ -27,9 +27,3 @@ cp -R ${ideaPath} ./idea-IU
 mkdir -p target/dependency/intellij-idea
 mv ${ideaPath} target/dependency/intellij-idea
 
-echo ' Cleaning build directory.'
-echo '__________________________'
-echo ' Current Directory: '
-echo pwd
-
-rm ~/PainPoints/build/libs/PainPoints-*.jar
