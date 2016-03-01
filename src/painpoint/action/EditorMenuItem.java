@@ -1,6 +1,5 @@
 package painpoint.action;
 
-import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiJavaFile;
 import painpoint.decoration.PainPointPresentation;

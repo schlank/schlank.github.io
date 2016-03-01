@@ -1,18 +1,11 @@
 package painpoint.dialog;
 
-import com.intellij.codeInsight.AnnotationUtil;
-import com.intellij.ide.caches.FileContent;
-import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.projectView.impl.nodes.ClassTreeNode;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.*;
-import com.intellij.psi.impl.source.PsiJavaFileImpl;
 import com.intellij.psi.impl.source.tree.PsiCommentImpl;
-import com.intellij.util.indexing.DataIndexer;
-import gnu.trove.THashMap;
 import org.apache.commons.lang.StringUtils;
-import org.jetbrains.annotations.NotNull;
 import painpoint.component.ProjectViewManager;
 import painpoint.decoration.ClassFileIdCalulator;
 import painpoint.decoration.PainPointPresentation;
@@ -26,9 +19,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PainPointPresentationFactory {
 

@@ -1,12 +1,9 @@
 package painpoint.dialog;
 
 import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiFileFactory;
 import com.intellij.testFramework.fixtures.LightCodeInsightFixtureTestCase;
-import org.junit.Ignore;
-import org.junit.Test;
+import painpoint.dialog.PainPointPresentationFactory;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class PainPointPresentationFactoryTest extends LightCodeInsightFixtureTestCase {
