@@ -11,4 +11,10 @@ gradle/
 ##Shared run configurations
 !.idea/runConfigurations/
 
-gradle/
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Compiled
+*.class

@@ -5,13 +5,13 @@ before_install:
   - ./prepare-build.sh 15.0.3
 after_success:
   - cd /tmp
-  - git clone https://${GH_OAUTH_TOKEN}@github.com/${GH_USER_NAME}/${GH_PROJECT_NAME} schlankio
-  - cd schlankio
+  - git clone https://${GH_OAUTH_TOKEN}@github.com/${GH_USER_NAME}/${GH_PROJECT_NAME} clonedir
+  - cd clonedir
   - ls $TRAVIS_BUILD_DIR/build/libs/
-  - cp $TRAVIS_BUILD_DIR/build/libs/PainPoints-*.jar .
+  - cp $TRAVIS_BUILD_DIR/build/libs/${GH_PROJECT_NAME}-*.jar .
   - git config --global user.name $GIT_AUTHOR_NAME
   - git config --global user.email $GIT_AUTHOR_EMAIL
-  - git add PainPoints-*.jar
+  - git add ${GH_PROJECT_NAME}-*.jar
   - git commit -m "[ci skip] Committed by Travis-CI"
   - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_USER_NAME}/${GH_PROJECT_NAME} 2>&1
   - echo $GH_USER_NAME
