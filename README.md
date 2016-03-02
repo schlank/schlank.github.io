@@ -1,6 +1,6 @@
 # PainPoints
 
-Travis CI Status: [![Build Status](https://travis-ci.org/schlank/PainPoints.svg?branch=master)](https://travis-ci.org/schlank/PainPoints)
+Travis CI Status: [![Build Status](https://travis-ci.org/RoboPlugins/PainPoints.svg?branch=master)](https://travis-ci.org/RoboPlugins/PainPoints)
 
 
 Deployment website for Intellij plugins.
