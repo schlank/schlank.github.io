@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="dataSourceStorageLocal">
-    <data-source name="H2 - test" uuid="de7c32fb-9fa0-45b2-aef8-4b1044d037ce">
-      <secret-storage>master_key</secret-storage>
-      <user-name>sa</user-name>
-    </data-source>
-  </component>
-</project>
