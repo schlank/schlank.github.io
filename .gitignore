@@ -17,3 +17,6 @@ build/
 
 # Compiled
 *.class
+
+# Cache
+.gradle
