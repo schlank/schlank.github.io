@@ -31,11 +31,6 @@ public class PluginDialog extends JDialog {
 
         // Create a message
         JPanel messagePane = new JPanel();
-        messagePane.add(new JLabel("Message"));
-        // get content pane, which is usually the
-        // Container of all the dialog's components.
-        getContentPane().add(messagePane);
-
         JPanel cbPane = new JPanel();
         JCheckBox jCheckBox = new JCheckBox();
         jCheckBox.setSelected(painPointPresentation.currentUserHasPainPoint());
