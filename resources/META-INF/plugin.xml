@@ -34,15 +34,15 @@
     <!-- Add your actions here -->
     <action id="PainPoints.EditorMenuAction"
             class="painpoint.action.EditorMenuItem"
-            text="Class Commentary"
-            description="Class Commentary Editor Menu Item">
+            text="Report Pain Point"
+            description="Pain Point Editor Menu Item">
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="shift BACK_QUOTE" />
     </action>
     <action id="PainPoints.ProjectViewMenuAction"
             class="painpoint.action.EditorMenuItem"
-            text="Class Commentary"
-            description="Class Commentary Project View Navigation Menu Item">
+            text="Report Pain Point"
+            description="Pain Point Project View Navigation Menu Item">
       <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="shift BACK_QUOTE" />
     </action>

@@ -46,11 +46,13 @@ public class EditorMenuItem extends AnAction {
         VirtualFile virtualFile = DataKeys.VIRTUAL_FILE.getData(actionEvent.getDataContext());
 
         PsiFile psiFile = actionEvent.getData(LangDataKeys.PSI_FILE);
-        PsiJavaFile psiJavaFile = (PsiJavaFile)psiFile;
-        PainPointPresentation painPointPresentation = PainPointPresentationFactory.creatPresentation(project, virtualFile, psiJavaFile);
+        if(psiFile instanceof PsiJavaFile) {
+            PsiJavaFile psiJavaFile = (PsiJavaFile) psiFile;
+            PainPointPresentation painPointPresentation = PainPointPresentationFactory.creatPresentation(project, virtualFile, psiJavaFile);
 
-        PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project);
-        pluginDialog.setSize(300, 150);
+            PluginDialog pluginDialog = new PluginDialog(painPointPresentation, mPainPointDomain, project);
+            pluginDialog.setSize(300, 150);
+        }
     }
 
     private @Nullable
