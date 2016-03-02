@@ -1,4 +1,4 @@
 <plugins>
-    <plugin id="PainPoints" url="https://github.com/schlank/schlank.github.io/blob/master/PainPoints.zip" version="1.0"/>
-    <plugin id="RoboHexar" url="https://github.com/schlank/schlank.github.io/blob/master/RoboHexar.zip" version="1.0"/>
+    <plugin id="PainPoints" url="http://schlank.github.io/PainPoints.zip" version="1.0"/>
+    <plugin id="RoboHexar" url="http://schlank.github.io/RoboHexar.zip" version="1.0"/>
 </plugins>
