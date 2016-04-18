@@ -1,4 +1,5 @@
 <plugins>
+    <plugin id="Marks" url="http://schlank.github.io/Marks.jar" version="1.1"/>
     <plugin id="PainPoints" url="http://schlank.github.io/PainPoints.zip" version="1.0"/>
     <plugin id="RoboHexar" url="http://schlank.github.io/RoboHexar.zip" version="1.0"/>
 </plugins>
